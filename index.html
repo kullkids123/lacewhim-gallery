@@ -7,13 +7,7 @@
 <title>lacewhim's little gallery ♡</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -23,156 +17,142 @@ body {
 }
 
 header {
-  background: linear-gradient(
-    180deg,
-    #f9e7ed,
-    #fffaf8
-  );
+  background: linear-gradient(#f9e7ed, #fffaf8);
   padding: 55px 20px 40px;
   text-align: center;
-  border-bottom: 1px solid #efd9e0;
 }
 
 h1 {
-  font-size: 48px;
-  font-style: italic;
+  font-size: 46px;
   font-weight: normal;
+  font-style: italic;
   color: #9f7485;
   margin: 0;
 }
 
 .subtitle {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 3px;
-  margin-top: 12px;
-}
-
-.decor {
-  color: #c69aab;
-  letter-spacing: 4px;
-  margin: 18px 0;
 }
 
 main {
   max-width: 650px;
   margin: auto;
-  padding: 32px 22px;
+  padding: 30px 22px;
   text-align: center;
 }
 
 h2 {
-  font-size: 28px;
+  color: #a47b8c;
   font-weight: normal;
   font-style: italic;
-  color: #a47b8c;
+  font-size: 28px;
 }
 
-.intro {
-  font-size: 14px;
-  line-height: 2;
-  margin-bottom: 30px;
-}
+p { line-height: 1.9; }
 
 .card {
   display: block;
-  background: #ffffff;
+  padding: 27px 16px;
+  margin: 17px 0;
+  background: white;
   border: 1px solid #efd9e0;
   border-radius: 20px;
-  padding: 30px 17px;
-  margin: 17px 0;
-  color: #76565f;
   text-decoration: none;
-  box-shadow: 0 5px 16px #ead5dd45;
+  color: #76565f;
+  box-shadow: 0 5px 15px #ead5dd45;
 }
 
-.card:active {
-  transform: scale(0.98);
-}
+.card span { font-size: 30px; }
+.card p { font-size: 12px; color: #aa8e99; }
 
-.card .emoji {
-  font-size: 30px;
-}
-
-.card h2 {
-  margin: 12px 0 8px;
-}
-
-.card p {
-  color: #aa8e99;
-  font-size: 12px;
-  line-height: 1.8;
-}
-
-.page {
-  display: none;
-}
-
-.page:target {
-  display: block;
-}
-
+.page { display: none; }
+.page:target { display: block; }
 body:not(:has(.page:target)) #home {
   display: block;
 }
 
-.description {
-  color: #a48c95;
-  font-size: 13px;
-  line-height: 1.9;
-}
-
-.gallery-empty {
-  background: white;
-  border: 1px dashed #e8c8d3;
-  border-radius: 18px;
-  margin: 27px 0;
-  padding: 45px 20px;
-  color: #af919b;
-  font-size: 14px;
-  line-height: 2;
-}
-
-.gallery-empty .symbol {
-  font-size: 26px;
-}
-
 .back {
   display: inline-block;
-  margin: 20px 0;
-  background: #f7e8ed;
-  border-radius: 25px;
+  margin: 25px 0;
   padding: 12px 20px;
+  background: #f7e8ed;
   color: #956f7c;
+  border-radius: 25px;
   text-decoration: none;
   font-size: 13px;
 }
 
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 13px;
+  border: 2px solid #f0dce2;
+  cursor: pointer;
+}
+
+.empty {
+  background: white;
+  border: 1px dashed #e8c8d3;
+  border-radius: 18px;
+  padding: 45px 20px;
+  margin: 25px 0;
+  color: #af919b;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #231b22e8;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lightbox.active { display: flex; }
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  color: white;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .notice {
-  margin: 35px auto;
-  max-width: 530px;
-  padding: 22px;
-  border-top: 1px solid #eed9df;
   font-size: 11px;
-  line-height: 2;
   color: #a58b94;
+  border-top: 1px solid #eed9df;
+  padding: 25px 10px;
+  margin-top: 30px;
 }
 
 footer {
-  background: #fae8ee;
   text-align: center;
-  padding: 28px;
-  font-size: 13px;
-  line-height: 2;
+  padding: 30px;
+  background: #fae8ee;
   color: #a07c89;
-}
-
-@media (max-width: 420px) {
-  h1 {
-    font-size: 42px;
-  }
-  h2 {
-    font-size: 25px;
-  }
+  line-height: 2;
 }
 </style>
 </head>
@@ -180,403 +160,197 @@ footer {
 <body>
 
 <header>
-  <div class="decor">𓈒 ୨୧ 𓈒</div>
+  <p>𓈒 ୨୧ 𓈒</p>
   <h1>lacewhim ♡</h1>
   <p class="subtitle">THE LITTLE GALLERY</p>
-  <div class="decor">✧ ⋆ ♡ ⋆ ✧</div>
-  <p class="description">
-    a little archive of delicate daydreams
-  </p>
+  <p>a little archive of delicate daydreams</p>
 </header>
 
 <main>
 
-<!-- HOME -->
-
 <section id="home" class="page">
+  <p>to our lovelies, ♡</p>
+  <p>explore our little world of<br>
+  lace, ribbons & lovely inspirations.</p>
 
-  <p class="intro">
-    to our lovelies, ♡
-    <br><br>
-    welcome to our little gallery,
-    where lace, ribbons & lovely
-    inspirations come together.
-    <br><br>
-    explore our collections below.
-  </p>
-
-  <a href="#toploader" class="card">
-    <div class="emoji">🎀</div>
+  <a class="card" href="#toploader">
+    <span>🎀</span>
     <h2>toploader deco</h2>
-    <p>explore our little inspirations ୨୧</p>
+    <p>explore the collection ୨୧</p>
   </a>
 
-  <a href="#binder" class="card">
-    <div class="emoji">🤍</div>
+  <a class="card" href="#binder">
+    <span>🤍</span>
     <h2>binder deco</h2>
-    <p>a home for your treasured photocards</p>
+    <p>explore the collection ୨୧</p>
   </a>
 
-  <a href="#aesthetic" class="card">
-    <div class="emoji">🪽</div>
+  <a class="card" href="#aesthetic">
+    <span>🪽</span>
     <h2>aesthetic preferences</h2>
-    <p>find the style that feels like you</p>
+    <p>find your favourite theme</p>
   </a>
-
 </section>
-
-
-<!-- TOPLOADER CATEGORY -->
 
 <section id="toploader" class="page">
-
   <h2>୨୧ toploader deco</h2>
+  <p>choose your little collection.</p>
 
-  <p class="description">
-    little frames for your most
-    treasured photocards.
-  </p>
-
-  <a href="#tl-minimal" class="card">
-    <div class="emoji">♡</div>
+  <a class="card" href="#tl-minimal">
     <h2>minimal deco</h2>
-    <p>soft, simple & delicate details</p>
+    <p>soft & delicate details</p>
   </a>
 
-  <a href="#tl-detailed" class="card">
-    <div class="emoji">🎀</div>
+  <a class="card" href="#tl-detailed">
     <h2>detailed deco</h2>
-    <p>lace, ribbons, pearls & charms</p>
+    <p>lace, pearls & ribbons</p>
   </a>
 
-  <a href="#home" class="back">
-    ← back to gallery
-  </a>
-
+  <a class="back" href="#home">← back</a>
 </section>
-
-
-<!-- TOPLOADER MINIMAL -->
 
 <section id="tl-minimal" class="page">
-
   <h2>୨୧ minimal toploader</h2>
+  <p>a little touch of softness. ♡</p>
 
-  <p class="description">
-    a little touch of softness.
-  </p>
-
-  <div class="gallery-empty">
-    <div class="symbol">♡</div>
-    minimal toploader inspirations
-    <br>
-    coming soon.
+  <div class="gallery">
+    <img
+      src="d7eb806e139d72cc0a2ded237742e477.jpg"
+      alt="Minimal toploader inspiration 01"
+      onclick="openPhoto(this.src)">
   </div>
 
-  <a href="#toploader" class="back">
+  <a class="back" href="#toploader">
     ← back to toploader
   </a>
-
 </section>
-
-
-<!-- TOPLOADER DETAILED -->
 
 <section id="tl-detailed" class="page">
-
   <h2>୨୧ detailed toploader</h2>
-
-  <p class="description">
-    thoughtfully adorned with
-    intricate little details.
-  </p>
-
-  <div class="gallery-empty">
-    <div class="symbol">🎀</div>
-    detailed toploader inspirations
-    <br>
-    coming soon.
-  </div>
-
-  <a href="#toploader" class="back">
-    ← back to toploader
-  </a>
-
+  <div class="empty">♡<br>coming soon</div>
+  <a class="back" href="#toploader">← back</a>
 </section>
-
-
-<!-- BINDER CATEGORY -->
 
 <section id="binder" class="page">
-
   <h2>୨୧ binder deco</h2>
+  <p>choose your little collection.</p>
 
-  <p class="description">
-    a little home for your
-    precious photocard collection.
-  </p>
-
-  <a href="#bd-minimal" class="card">
-    <div class="emoji">♡</div>
+  <a class="card" href="#bd-minimal">
     <h2>minimal deco</h2>
-    <p>simple ribbons & gentle details</p>
+    <p>simple & gentle details</p>
   </a>
 
-  <a href="#bd-detailed" class="card">
-    <div class="emoji">🤍</div>
+  <a class="card" href="#bd-detailed">
     <h2>detailed deco</h2>
-    <p>delicate lace & intricate designs</p>
+    <p>lace & intricate designs</p>
   </a>
 
-  <a href="#home" class="back">
-    ← back to gallery
-  </a>
-
+  <a class="back" href="#home">← back</a>
 </section>
-
-
-<!-- BINDER MINIMAL -->
 
 <section id="bd-minimal" class="page">
-
-  <h2>୨୧ minimal binder deco</h2>
-
-  <p class="description">
-    softly decorated, just for you.
-  </p>
-
-  <div class="gallery-empty">
-    <div class="symbol">♡</div>
-    minimal binder inspirations
-    <br>
-    coming soon.
-  </div>
-
-  <a href="#binder" class="back">
-    ← back to binder
-  </a>
-
+  <h2>୨୧ minimal binder</h2>
+  <div class="empty">♡<br>coming soon</div>
+  <a class="back" href="#binder">← back</a>
 </section>
-
-
-<!-- BINDER DETAILED -->
 
 <section id="bd-detailed" class="page">
-
-  <h2>୨୧ detailed binder deco</h2>
-
-  <p class="description">
-    lace-filled little treasures,
-    made with love.
-  </p>
-
-  <div class="gallery-empty">
-    <div class="symbol">🤍</div>
-    detailed binder inspirations
-    <br>
-    coming soon.
-  </div>
-
-  <a href="#binder" class="back">
-    ← back to binder
-  </a>
-
+  <h2>୨୧ detailed binder</h2>
+  <div class="empty">♡<br>coming soon</div>
+  <a class="back" href="#binder">← back</a>
 </section>
-
-
-<!-- AESTHETIC PREFERENCES -->
 
 <section id="aesthetic" class="page">
-
   <h2>୨୧ aesthetic preferences</h2>
+  <p>explore your little daydreams.</p>
 
-  <p class="description">
-    a little world of colours
-    & daydreams.
-  </p>
-
-  <a href="#angelcore" class="card">
-    <div class="emoji">🪽</div>
-    <h2>angelcore</h2>
-    <p>heavenly whites & soft details</p>
+  <a class="card" href="#angelcore">
+    <h2>🪽 angelcore</h2>
   </a>
 
-  <a href="#coquette" class="card">
-    <div class="emoji">🎀</div>
-    <h2>coquette</h2>
-    <p>pink ribbons & tiny pearls</p>
+  <a class="card" href="#coquette">
+    <h2>🎀 coquette</h2>
   </a>
 
-  <a href="#vintage" class="card">
-    <div class="emoji">🕯️</div>
-    <h2>vintage</h2>
-    <p>florals & timeless romance</p>
+  <a class="card" href="#vintage">
+    <h2>🕯️ vintage</h2>
   </a>
 
-  <a href="#gothic" class="card">
-    <div class="emoji">🖤</div>
-    <h2>gothic romance</h2>
-    <p>dark lace & velvet ribbons</p>
+  <a class="card" href="#gothic">
+    <h2>🖤 gothic romance</h2>
   </a>
 
-  <a href="#bias" class="card">
-    <div class="emoji">💌</div>
-    <h2>bias-inspired</h2>
-    <p>your favourite idol or comeback era</p>
+  <a class="card" href="#bias">
+    <h2>💌 bias-inspired</h2>
   </a>
 
-  <a href="#home" class="back">
-    ← back to gallery
-  </a>
-
+  <a class="back" href="#home">← back</a>
 </section>
-
-
-<!-- ANGELCORE -->
 
 <section id="angelcore" class="page">
-
   <h2>🪽 angelcore</h2>
-
-  <p class="description">
-    heavenly whites, pearls
-    & soft lace.
-  </p>
-
-  <div class="gallery-empty">
-    ♡<br>
-    angelcore inspirations
-    <br>coming soon.
-  </div>
-
-  <a href="#aesthetic" class="back">
-    ← back to aesthetics
-  </a>
-
+  <div class="empty">♡<br>coming soon</div>
+  <a class="back" href="#aesthetic">← back</a>
 </section>
-
-
-<!-- COQUETTE -->
 
 <section id="coquette" class="page">
-
   <h2>🎀 coquette</h2>
-
-  <p class="description">
-    delicate bows, pink ribbons
-    & sweet little details.
-  </p>
-
-  <div class="gallery-empty">
-    ♡<br>
-    coquette inspirations
-    <br>coming soon.
-  </div>
-
-  <a href="#aesthetic" class="back">
-    ← back to aesthetics
-  </a>
-
+  <div class="empty">♡<br>coming soon</div>
+  <a class="back" href="#aesthetic">← back</a>
 </section>
-
-
-<!-- VINTAGE -->
 
 <section id="vintage" class="page">
-
   <h2>🕯️ vintage</h2>
-
-  <p class="description">
-    faded florals & timeless charm.
-  </p>
-
-  <div class="gallery-empty">
-    ♡<br>
-    vintage inspirations
-    <br>coming soon.
-  </div>
-
-  <a href="#aesthetic" class="back">
-    ← back to aesthetics
-  </a>
-
+  <div class="empty">♡<br>coming soon</div>
+  <a class="back" href="#aesthetic">← back</a>
 </section>
-
-
-<!-- GOTHIC -->
 
 <section id="gothic" class="page">
-
   <h2>🖤 gothic romance</h2>
-
-  <p class="description">
-    dark lace, velvet & romantic
-    little details.
-  </p>
-
-  <div class="gallery-empty">
-    ♡<br>
-    gothic inspirations
-    <br>coming soon.
-  </div>
-
-  <a href="#aesthetic" class="back">
-    ← back to aesthetics
-  </a>
-
+  <div class="empty">♡<br>coming soon</div>
+  <a class="back" href="#aesthetic">← back</a>
 </section>
-
-
-<!-- BIAS INSPIRED -->
 
 <section id="bias" class="page">
-
   <h2>💌 bias-inspired</h2>
-
-  <p class="description">
-    inspired by your favourite idols,
-    signature colours & comeback eras.
-  </p>
-
-  <div class="gallery-empty">
-    ♡<br>
-    bias-inspired inspirations
-    <br>coming soon.
-  </div>
-
-  <a href="#aesthetic" class="back">
-    ← back to aesthetics
-  </a>
-
+  <div class="empty">♡<br>coming soon</div>
+  <a class="back" href="#aesthetic">← back</a>
 </section>
 
-
-<!-- DISCLAIMER -->
-
 <div class="notice">
-  ୨୧ a gentle reminder
-  <br><br>
-  all reference images are shared
-  for inspiration purposes only.
-  they are not original handmade
-  creations by lacewhim.
-  <br><br>
-  original designs remain the property
-  of their respective creators.
-  <br><br>
-  custom requests are subject to
-  material availability & approval.
+  ୨୧ a gentle reminder<br><br>
+  reference images are for inspiration only
+  and are not handmade creations by lacewhim.
+  images remain the property of their
+  respective owners and are displayed
+  with permission where applicable.
 </div>
 
 </main>
 
+<div class="lightbox" id="lightbox"
+     onclick="closePhoto()">
+  <button class="close" aria-label="Close">×</button>
+  <img id="largePhoto" alt="Enlarged gallery image">
+</div>
+
 <footer>
-  𓈒 ୨୧ 𓈒
-  <br>
-  thoughtfully made, just for you.
-  <br>
+  𓈒 ୨୧ 𓈒<br>
   with love, lacewhim. ♡
 </footer>
+
+<script>
+function openPhoto(src) {
+  document.getElementById("largePhoto").src = src;
+  document.getElementById("lightbox")
+    .classList.add("active");
+}
+
+function closePhoto() {
+  document.getElementById("lightbox")
+    .classList.remove("active");
+}
+</script>
 
 </body>
 </html>
