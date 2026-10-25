@@ -107,7 +107,8 @@ existingPhotos.forEach(p=>addPhoto(p.category,p.code,p.file));
 async function loadNewPhotos(){
   status.textContent='checking for new inspirations ♡';
   try{
-    const response=await fetch('https://api.github.com/repos/kullkids123/lacewhim-gallery/contents/',{
+    const response=await fetch('https://api.github.com/repos/kullkids123/lacewhim-gallery/contents/?ref=main',{
+      cache:'no-store',
       headers:{'Accept':'application/vnd.github+json'}
     });
     if(!response.ok)throw new Error('GitHub API unavailable');
@@ -115,11 +116,17 @@ async function loadNewPhotos(){
     if(!Array.isArray(files))throw new Error('Unexpected file list');
     files.forEach(item=>{
       if(item.type!=='file')return;
-      const match=item.name.match(/^(TL-M|TL-D|BD-M|BD-D|AN|CQ|VT|GR|BI)-(\d{3,})\.(jpg|jpeg|png|webp|gif)$/i);
+      // TL-M003 / TL-D001 / BD-M001 / BD-D001 (no extra dash)
+      // AN-001 / CQ-001 / VT-001 / GR-001 / BI-001
+      const match=item.name.match(/^(TL-M|TL-D|BD-M|BD-D|AN|CQ|VT|GR|BI)(-?)(\d{3,})\.(jpg|jpeg|png|webp|gif)$/i);
       if(!match)return;
       const prefix=match[1].toUpperCase();
+      const isDeco=['TL-M','TL-D','BD-M','BD-D'].includes(prefix);
+      // Reject unexpected formats instead of giving designs the wrong code.
+      if(isDeco && match[2]!=='')return;
+      if(!isDeco && match[2]!=='-')return;
       const category=prefixCategory[prefix];
-      const code=prefix+'-'+match[2];
+      const code=isDeco ? prefix+match[3] : prefix+'-'+match[3];
       addPhoto(category,code,item.name);
     });
     status.textContent='';
