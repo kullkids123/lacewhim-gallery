@@ -3,214 +3,120 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>lacewhim's little gallery ♡</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>lacewhim ♡ | the little gallery</title>
 <style>
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background: #fffaf8;
-  color: #76565f;
-  font-family: Georgia, serif;
+*{box-sizing:border-box}
+body{
+ margin:0;background:#fffaf8;
+ color:#76565f;font-family:Georgia,serif;
 }
-
-header {
-  text-align: center;
-  background: linear-gradient(#f9e7ed, #fffaf8);
-  padding: 55px 20px 40px;
+header{
+ background:linear-gradient(#f9e7ed,#fffaf8);
+ text-align:center;padding:55px 20px 40px;
 }
-
-h1 {
-  font-size: 46px;
-  font-weight: normal;
-  font-style: italic;
-  color: #9f7485;
-  margin: 0;
+h1{
+ font-size:46px;font-style:italic;
+ font-weight:normal;color:#a17b8c;
+ margin:5px 0;
 }
-
-.subtitle {
-  font-size: 11px;
-  letter-spacing: 3px;
+header small{letter-spacing:3px}
+main{
+ max-width:650px;margin:auto;
+ padding:30px 20px;text-align:center;
+ min-height:50vh;
 }
-
-h2 {
-  font-size: 28px;
-  font-weight: normal;
-  font-style: italic;
-  color: #a47b8c;
+h2{
+ font-size:27px;font-weight:normal;
+ font-style:italic;color:#a47b8c;
 }
-
-p { line-height: 1.9; }
-
-main {
-  max-width: 650px;
-  margin: auto;
-  padding: 30px 20px;
-  text-align: center;
-  min-height: 350px;
+p{line-height:1.8}
+.muted{font-size:13px;color:#a48c95}
+.card{
+ display:block;background:white;
+ border:1px solid #efd9e0;
+ border-radius:19px;padding:25px 15px;
+ margin:16px 0;text-decoration:none;
+ color:#76565f;
+ box-shadow:0 5px 15px #ead5dd45;
 }
-
-.description {
-  font-size: 13px;
-  color: #a48c95;
+.card span{font-size:29px}
+.card h2{margin:12px 0 8px}
+.card p{font-size:12px;color:#aa8e99}
+.gallery{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:12px;margin:25px 0;
 }
-
-.card {
-  display: block;
-  padding: 27px 16px;
-  margin: 17px 0;
-  background: white;
-  border: 1px solid #efd9e0;
-  border-radius: 20px;
-  text-decoration: none;
-  color: #76565f;
-  box-shadow: 0 5px 15px #ead5dd45;
+.photo{
+ background:white;border:1px solid #efd9e0;
+ border-radius:15px;padding:9px;
 }
-
-.card .emoji { font-size: 30px; }
-.card h2 { margin: 12px 0 8px; }
-.card p { font-size: 12px; color: #aa8e99; }
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 25px 0;
+.photo img{
+ width:100%;aspect-ratio:1;
+ object-fit:cover;border-radius:10px;
+ cursor:pointer;
 }
-
-.photo-card {
-  background: white;
-  padding: 9px;
-  border: 1px solid #efd9e0;
-  border-radius: 15px;
+.code{
+ font-size:13px;font-weight:bold;
+ letter-spacing:1px;margin:10px 0;
 }
-
-.photo-card img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 10px;
-  cursor: pointer;
+button,.back{
+ padding:11px 15px;
+ border:1px solid #e8c8d3;
+ background:#faeaf0;color:#906b7a;
+ border-radius:22px;font-family:Georgia,serif;
+ cursor:pointer;
 }
-
-.design-code {
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin: 12px 0 9px;
+.photo button{width:100%}
+.back{
+ display:inline-block;margin:22px 0;
+ text-decoration:none;
 }
-
-.copy-btn {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #e8c8d3;
-  background: #faeaf0;
-  border-radius: 18px;
-  color: #906b7a;
-  font-family: Georgia, serif;
-  cursor: pointer;
+.empty{
+ background:white;
+ border:1px dashed #e8c8d3;
+ border-radius:17px;padding:40px 15px;
+ margin:25px 0;color:#af919b;
 }
-
-.empty {
-  background: white;
-  border: 1px dashed #e8c8d3;
-  border-radius: 18px;
-  padding: 45px 20px;
-  margin: 25px 0;
-  color: #af919b;
-  line-height: 2;
+.notice{
+ font-size:11px;line-height:2;
+ color:#a58b94;
+ border-top:1px solid #eed9df;
+ padding:25px 10px;margin-top:30px;
 }
-
-.back {
-  display: inline-block;
-  margin: 24px 0;
-  padding: 12px 20px;
-  background: #f7e8ed;
-  color: #956f7c;
-  border-radius: 25px;
-  text-decoration: none;
-  font-size: 13px;
+footer{
+ text-align:center;background:#fae8ee;
+ color:#a07c89;padding:30px;
+ line-height:2;font-size:13px;
 }
-
-.note {
-  padding: 22px 10px;
-  border-top: 1px solid #eed9df;
-  font-size: 11px;
-  color: #a58b94;
-  line-height: 2;
-  margin-top: 30px;
+#viewer{
+ display:none;position:fixed;inset:0;
+ background:#231b22f0;z-index:999;
+ align-items:center;justify-content:center;
+ flex-direction:column;padding:20px;gap:14px;
 }
-
-footer {
-  text-align: center;
-  background: #fae8ee;
-  color: #a07c89;
-  padding: 30px;
-  line-height: 2;
-  font-size: 13px;
+#viewer.open{display:flex}
+#viewer img{
+ max-width:95vw;max-height:65vh;
+ object-fit:contain;border-radius:10px;
 }
-
-.lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: #231b22f0;
-  z-index: 1000;
-  color: white;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+#viewer .code{color:white;margin:0}
+#viewer .close{
+ position:absolute;top:15px;right:20px;
+ background:none;border:0;color:white;
+ font-size:32px;
 }
-
-.lightbox.active { display: flex; }
-
-.lightbox img {
-  max-width: 95%;
-  max-height: 65vh;
-  object-fit: contain;
-  border-radius: 10px;
+#viewer .controls{display:flex;gap:12px}
+#viewer .controls button{
+ background:#ffffff25;color:white;
+ border-color:#ffffff55;
 }
-
-.lightbox .design-code {
-  color: white;
-  margin-top: 18px;
-}
-
-.lightbox .copy-btn {
-  max-width: 200px;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  font-size: 32px;
-  background: none;
-  border: 0;
-  color: white;
-  cursor: pointer;
-}
-
-.viewer-nav {
-  display: flex;
-  gap: 20px;
-  margin-top: 18px;
-}
-
-.viewer-nav button {
-  background: #ffffff25;
-  color: white;
-  border: 1px solid #ffffff55;
-  padding: 10px 20px;
-  border-radius: 25px;
-}
-
-@media(max-width: 420px) {
-  h1 { font-size: 40px; }
-  h2 { font-size: 25px; }
+@media(max-width:420px){
+ h1{font-size:40px}
+ h2{font-size:25px}
+ .photo{padding:6px}
+ .photo button{font-size:11px;padding:9px 4px}
 }
 </style>
 </head>
@@ -218,352 +124,322 @@ footer {
 <body>
 
 <header>
-  <p>𓈒 ୨୧ 𓈒</p>
-  <h1>lacewhim ♡</h1>
-  <p class="subtitle">THE LITTLE GALLERY</p>
-  <p class="description">
-    a little archive of delicate daydreams
-  </p>
+ <p>𓈒 ୨୧ 𓈒</p>
+ <h1>lacewhim ♡</h1>
+ <small>THE LITTLE GALLERY</small>
+ <p class="muted">
+ a little archive of delicate daydreams
+ </p>
 </header>
 
 <main>
-  <div id="content"></div>
+ <div id="content"></div>
 
-  <div class="note">
-    ୨୧ a gentle reminder
-    <br><br>
-    found an inspiration you love?
-    simply copy its design code
-    and include it in your order form.
-    <br><br>
-    reference images are not original
-    handmade creations by lacewhim.
-    original works belong to their
-    respective creators.
-    <br><br>
-    images must be used with permission
-    or appropriate usage rights.
-    exact recreations are not guaranteed.
-  </div>
+ <div class="notice">
+ ୨୧ a gentle reminder
+ <br><br>
+ found a design you love? simply copy
+ its code and include it in your order form.
+ <br><br>
+ reference images are for inspiration only,
+ not handmade creations by lacewhim.
+ images may only be displayed with permission
+ or appropriate usage rights.
+ exact replicas are not guaranteed.
+ </div>
 </main>
 
-<div class="lightbox" id="lightbox">
-  <button class="close" onclick="closePhoto()">
-    ×
-  </button>
-
-  <img id="largePhoto" alt="Design reference">
-
-  <p class="design-code" id="largeCode"></p>
-
-  <button class="copy-btn"
-    onclick="copyCurrentCode(this)">
-    ♡ copy design code
-  </button>
-
-  <div class="viewer-nav">
-    <button onclick="changePhoto(-1)">← prev</button>
-    <button onclick="changePhoto(1)">next →</button>
-  </div>
-</div>
-
 <footer>
-  𓈒 ୨୧ 𓈒
-  <br>
-  thoughtfully made, just for you.
-  <br>
-  with love, lacewhim. ♡
+ 𓈒 ୨୧ 𓈒
+ <br>
+ thoughtfully made, just for you.
+ <br>
+ with love, lacewhim. ♡
 </footer>
+
+<div id="viewer" onclick="if(event.target===this)closeViewer()">
+ <button class="close" onclick="closeViewer()">×</button>
+ <img id="bigImage" alt="Design reference">
+ <p class="code" id="bigCode"></p>
+ <button id="bigCopy" onclick="copyCurrent(this)">
+ ♡ copy design code
+ </button>
+ <div class="controls">
+  <button onclick="changePhoto(-1)">← prev</button>
+  <button onclick="changePhoto(1)">next →</button>
+ </div>
+</div>
 
 <script>
 
-// GALLERY IMAGES
-// Add future images here with unique codes.
+// ADD YOUR GALLERY PHOTOS HERE
+// Each code must stay unique.
 
 const galleries = {
 
-  "tl-minimal": [
-    {
-      code: "TL-M001",
-      src: "d7eb806e139d72cc0a2ded237742e477.jpg"
-    }
-  ],
+ "tl-minimal": [
+  {
+   code:"TL-M001",
+   file:"d7eb806e139d72cc0a2ded237742e477.jpg"
+  }
+ ],
 
-  "tl-detailed": [],
+ "tl-detailed": [],
 
-  "bd-minimal": [],
+ "bd-minimal": [],
 
-  "bd-detailed": [],
+ "bd-detailed": [],
 
-  "angelcore": [],
+ "angelcore": [],
 
-  "coquette": [],
+ "coquette": [],
 
-  "vintage": [],
+ "vintage": [],
 
-  "gothic": [],
+ "gothic": [],
 
-  "bias": []
+ "bias": []
 
 };
 
-// WEBSITE CATEGORIES
+// CATEGORY MENUS
 
-const pages = {
+const menus = {
 
-  home: {
-    title: "welcome to our little gallery",
-    intro: "to our lovelies, ♡",
-    links: [
-      ["🎀", "toploader deco", "toploader"],
-      ["🤍", "binder deco", "binder"],
-      ["🪽", "aesthetic preferences", "aesthetic"]
-    ]
-  },
+ home: {
+  title:"the little gallery",
+  desc:"to our lovelies, ♡ explore our collections.",
+  items:[
+   ["🎀","toploader deco","toploader"],
+   ["🤍","binder deco","binder"],
+   ["🪽","aesthetic preferences","aesthetic"]
+  ]
+ },
 
-  toploader: {
-    title: "toploader deco",
-    intro: "little frames for your treasured photocards.",
-    back: "home",
-    links: [
-      ["♡", "minimal deco", "tl-minimal"],
-      ["🎀", "detailed deco", "tl-detailed"]
-    ]
-  },
+ toploader: {
+  title:"toploader deco",
+  desc:"little frames for treasured photocards.",
+  back:"home",
+  items:[
+   ["♡","minimal deco","tl-minimal"],
+   ["🎀","detailed deco","tl-detailed"]
+  ]
+ },
 
-  binder: {
-    title: "binder deco",
-    intro: "a little home for your precious photocards.",
-    back: "home",
-    links: [
-      ["♡", "minimal deco", "bd-minimal"],
-      ["🤍", "detailed deco", "bd-detailed"]
-    ]
-  },
+ binder: {
+  title:"binder deco",
+  desc:"a little home for your favourite photocards.",
+  back:"home",
+  items:[
+   ["♡","minimal deco","bd-minimal"],
+   ["🤍","detailed deco","bd-detailed"]
+  ]
+ },
 
-  aesthetic: {
-    title: "aesthetic preferences",
-    intro: "find the little style that feels like you.",
-    back: "home",
-    links: [
-      ["🪽", "angelcore", "angelcore"],
-      ["🎀", "coquette", "coquette"],
-      ["🕯️", "vintage", "vintage"],
-      ["🖤", "gothic romance", "gothic"],
-      ["💌", "bias-inspired", "bias"]
-    ]
-  }
-
+ aesthetic: {
+  title:"aesthetic preferences",
+  desc:"find the style that feels like you.",
+  back:"home",
+  items:[
+   ["🪽","angelcore","angelcore"],
+   ["🎀","coquette","coquette"],
+   ["🕯️","vintage","vintage"],
+   ["🖤","gothic romance","gothic"],
+   ["💌","bias-inspired","bias"]
+  ]
+ }
 };
 
-const galleryTitles = {
-  "tl-minimal": "minimal toploader",
-  "tl-detailed": "detailed toploader",
-  "bd-minimal": "minimal binder",
-  "bd-detailed": "detailed binder",
-  "angelcore": "angelcore",
-  "coquette": "coquette",
-  "vintage": "vintage",
-  "gothic": "gothic romance",
-  "bias": "bias-inspired"
+const titles={
+ "tl-minimal":"minimal toploader",
+ "tl-detailed":"detailed toploader",
+ "bd-minimal":"minimal binder",
+ "bd-detailed":"detailed binder",
+ "angelcore":"angelcore",
+ "coquette":"coquette",
+ "vintage":"vintage",
+ "gothic":"gothic romance",
+ "bias":"bias-inspired"
 };
 
-let activeGallery = "";
-let currentIndex = 0;
+let activeCategory="";
+let photoIndex=0;
 
-function renderPage() {
-  closePhoto();
+const content=document.getElementById("content");
+const viewer=document.getElementById("viewer");
 
-  let id = location.hash.slice(1) || "home";
-  const content = document.getElementById("content");
-
-  content.innerHTML = "";
-
-  if (pages[id]) {
-    const page = pages[id];
-
-    content.innerHTML =
-      "<h2>୨୧ " + page.title + "</h2>" +
-      '<p class="description">' + page.intro + "</p>";
-
-    page.links.forEach(item => {
-      const card = document.createElement("a");
-      card.className = "card";
-      card.href = "#" + item[2];
-
-      const emoji = document.createElement("span");
-      emoji.textContent = item[0];
-
-      const title = document.createElement("h2");
-      title.textContent = item[1];
-
-      const caption = document.createElement("p");
-      caption.textContent = "explore collection ୨୧";
-
-      card.append(emoji, title, caption);
-      content.appendChild(card);
-    });
-
-    if (page.back) addBack(page.back);
-  }
-
-  else if (id in galleries) {
-    const heading = document.createElement("h2");
-    heading.textContent = "୨୧ " + galleryTitles[id];
-    content.appendChild(heading);
-
-    const list = galleries[id];
-
-    if (list.length === 0) {
-      const empty = document.createElement("div");
-      empty.className = "empty";
-      empty.textContent = "♡ little inspirations coming soon.";
-      content.appendChild(empty);
-    }
-
-    else {
-      const gallery = document.createElement("div");
-      gallery.className = "gallery";
-
-      list.forEach((photo, index) => {
-        const card = document.createElement("div");
-        card.className = "photo-card";
-
-        const img = document.createElement("img");
-        img.src = photo.src;
-        img.alt = "Reference " + photo.code;
-        img.onclick = () => openPhoto(id, index);
-
-        const code = document.createElement("p");
-        code.className = "design-code";
-        code.textContent = photo.code;
-
-        const btn = document.createElement("button");
-        btn.className = "copy-btn";
-        btn.textContent = "♡ copy code";
-        btn.onclick = () => copyCode(photo.code, btn);
-
-        card.append(img, code, btn);
-        gallery.appendChild(card);
-      });
-
-      content.appendChild(gallery);
-    }
-
-    addBack(
-      id.startsWith("tl-") ? "toploader" :
-      id.startsWith("bd-") ? "binder" :
-      "aesthetic"
-    );
-  }
-
-  else {
-    location.hash = "#home";
-  }
-
-  window.scrollTo(0, 0);
+function addBack(target){
+ const link=document.createElement("a");
+ link.className="back";
+ link.href="#"+target;
+ link.textContent="← back";
+ content.appendChild(link);
 }
 
-function addBack(target) {
-  const back = document.createElement("a");
-  back.className = "back";
-  back.href = "#" + target;
-  back.textContent = "← back";
-  document.getElementById("content").appendChild(back);
-}
+function render(){
+ closeViewer();
+ const id=location.hash.slice(1)||"home";
+ content.replaceChildren();
 
-// COPY DESIGN CODE
+ if(menus[id]){
+  const menu=menus[id];
 
-async function copyCode(code, button) {
-  try {
-    await navigator.clipboard.writeText(code);
-    button.textContent = "♡ copied!";
-  } catch (error) {
-    const box = document.createElement("textarea");
-    box.value = code;
-    document.body.appendChild(box);
-    box.select();
+  const h=document.createElement("h2");
+  h.textContent="୨୧ "+menu.title;
+  content.appendChild(h);
 
-    const copied = document.execCommand("copy");
-    box.remove();
+  const p=document.createElement("p");
+  p.className="muted";
+  p.textContent=menu.desc;
+  content.appendChild(p);
 
-    button.textContent = copied
-      ? "♡ copied!"
-      : "copy manually: " + code;
+  menu.items.forEach(item=>{
+   const a=document.createElement("a");
+   a.className="card";
+   a.href="#"+item[2];
+
+   const emoji=document.createElement("span");
+   emoji.textContent=item[0];
+
+   const title=document.createElement("h2");
+   title.textContent=item[1];
+
+   const caption=document.createElement("p");
+   caption.textContent="explore collection ୨୧";
+
+   a.append(emoji,title,caption);
+   content.appendChild(a);
+  });
+
+  if(menu.back)addBack(menu.back);
+ }
+
+ else if(Object.prototype.hasOwnProperty.call(galleries,id)){
+  const h=document.createElement("h2");
+  h.textContent="୨୧ "+titles[id];
+  content.appendChild(h);
+
+  const list=galleries[id];
+
+  if(list.length===0){
+   const empty=document.createElement("div");
+   empty.className="empty";
+   empty.textContent="♡ little inspirations coming soon.";
+   content.appendChild(empty);
+  }else{
+   const grid=document.createElement("div");
+   grid.className="gallery";
+
+   list.forEach((photo,index)=>{
+    const card=document.createElement("div");
+    card.className="photo";
+
+    const img=document.createElement("img");
+    img.src=photo.file;
+    img.alt="Design "+photo.code;
+    img.onclick=()=>openViewer(id,index);
+
+    const code=document.createElement("p");
+    code.className="code";
+    code.textContent=photo.code;
+
+    const btn=document.createElement("button");
+    btn.textContent="♡ copy code";
+    btn.onclick=()=>copyCode(photo.code,btn);
+
+    card.append(img,code,btn);
+    grid.appendChild(card);
+   });
+
+   content.appendChild(grid);
   }
+
+  const back=id.startsWith("tl-")?"toploader":
+   id.startsWith("bd-")?"binder":"aesthetic";
+
+  addBack(back);
+ }else{
+  location.hash="#home";
+ }
+
+ window.scrollTo(0,0);
 }
 
-function copyCurrentCode(button) {
-  const photo = galleries[activeGallery][currentIndex];
-  copyCode(photo.code, button);
+// COPY CODE
+
+async function copyCode(code,button){
+ try{
+  await navigator.clipboard.writeText(code);
+  button.textContent="♡ copied!";
+ }catch(e){
+  const t=document.createElement("textarea");
+  t.value=code;
+  document.body.appendChild(t);
+  t.select();
+  const copied=document.execCommand("copy");
+  t.remove();
+  button.textContent=copied?"♡ copied!":
+   "code: "+code;
+ }
 }
 
 // IMAGE VIEWER
 
-function openPhoto(category, index) {
-  activeGallery = category;
-  currentIndex = index;
-
-  showPhoto();
-
-  document.getElementById("lightbox")
-    .classList.add("active");
+function openViewer(category,index){
+ activeCategory=category;
+ photoIndex=index;
+ showPhoto();
+ viewer.classList.add("open");
 }
 
-function showPhoto() {
-  const photo = galleries[activeGallery][currentIndex];
-
-  document.getElementById("largePhoto").src = photo.src;
-  document.getElementById("largeCode").textContent = photo.code;
-  document.querySelector(".lightbox .copy-btn")
-    .textContent = "♡ copy design code";
+function showPhoto(){
+ const photo=galleries[activeCategory][photoIndex];
+ document.getElementById("bigImage").src=photo.file;
+ document.getElementById("bigCode").textContent=photo.code;
+ document.getElementById("bigCopy").textContent=
+  "♡ copy design code";
 }
 
-function changePhoto(direction) {
-  if (!activeGallery) return;
+function changePhoto(direction){
+ if(!activeCategory)return;
+ const count=galleries[activeCategory].length;
+ if(count<2)return;
 
-  const list = galleries[activeGallery];
-
-  currentIndex =
-    (currentIndex + direction + list.length) % list.length;
-
-  showPhoto();
+ photoIndex=(photoIndex+direction+count)%count;
+ showPhoto();
 }
 
-function closePhoto() {
-  document.getElementById("lightbox")
-    .classList.remove("active");
+function copyCurrent(button){
+ const photo=galleries[activeCategory][photoIndex];
+ copyCode(photo.code,button);
 }
 
-let touchStart = 0;
+function closeViewer(){
+ viewer.classList.remove("open");
+}
 
-document.getElementById("lightbox")
-  .addEventListener("touchstart", e => {
-    touchStart = e.changedTouches[0].screenX;
-  }, {passive: true});
+let startX=0;
 
-document.getElementById("lightbox")
-  .addEventListener("touchend", e => {
-    const difference =
-      e.changedTouches[0].screenX - touchStart;
+viewer.addEventListener("touchstart",e=>{
+ startX=e.changedTouches[0].screenX;
+},{passive:true});
 
-    if (Math.abs(difference) > 50) {
-      changePhoto(difference < 0 ? 1 : -1);
-    }
-  }, {passive: true});
+viewer.addEventListener("touchend",e=>{
+ const diff=e.changedTouches[0].screenX-startX;
+ if(Math.abs(diff)>50){
+  changePhoto(diff<0?1:-1);
+ }
+},{passive:true});
 
-document.addEventListener("keydown", e => {
-  const isOpen = document.getElementById("lightbox")
-    .classList.contains("active");
-
-  if (!isOpen) return;
-  if (e.key === "Escape") closePhoto();
-  if (e.key === "ArrowRight") changePhoto(1);
-  if (e.key === "ArrowLeft") changePhoto(-1);
+document.addEventListener("keydown",e=>{
+ if(!viewer.classList.contains("open"))return;
+ if(e.key==="Escape")closeViewer();
+ if(e.key==="ArrowRight")changePhoto(1);
+ if(e.key==="ArrowLeft")changePhoto(-1);
 });
 
-window.addEventListener("hashchange", renderPage);
-renderPage();
+window.addEventListener("hashchange",render);
+render();
 
 </script>
 </body>
