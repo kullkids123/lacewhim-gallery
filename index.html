@@ -3,156 +3,475 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>lacewhim's gallery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>lacewhim's little gallery ♡</title>
+
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: #fffaf7;
-  color: #694c50;
+  background: #fffaf8;
+  color: #76565f;
   font-family: Georgia, serif;
 }
+
 header {
-  background: #fbe7ed;
-  padding: 65px 20px 50px;
+  background: linear-gradient(180deg, #f9e7ed, #fff8f7);
+  padding: 65px 20px 48px;
   text-align: center;
-  border-bottom: 1px solid #edd0d9;
+  border-bottom: 1px solid #f0dce2;
 }
+
 h1 {
-  font-size: 48px;
+  font-size: 51px;
   font-style: italic;
   font-weight: normal;
   margin: 0;
+  color: #9f7485;
 }
-h2 {
-  font-size: 28px;
-  font-weight: normal;
-  font-style: italic;
-}
+
 .subtitle {
-  font-size: 13px;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  font-size: 10px;
+  margin-top: 12px;
+  text-transform: uppercase;
 }
+
+.decor {
+  color: #c99bac;
+  letter-spacing: 5px;
+  margin: 18px 0;
+}
+
 main {
-  max-width: 700px;
+  max-width: 680px;
   margin: auto;
-  padding: 30px 22px;
+  padding: 34px 23px;
   text-align: center;
 }
+
+h2 {
+  font-size: 29px;
+  font-weight: normal;
+  font-style: italic;
+  color: #a47b8c;
+}
+
+.intro {
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 32px;
+}
+
 .card {
   display: block;
-  background: white;
-  border: 1px solid #efd5dd;
-  border-radius: 20px;
-  padding: 32px 15px;
-  margin: 20px 0;
-  color: #694c50;
+  background: #ffffff;
+  border: 1px solid #efd9e0;
+  border-radius: 19px;
+  padding: 30px 18px;
+  margin: 17px 0;
+  color: #76565f;
   text-decoration: none;
-  box-shadow: 0 5px 15px #eedde555;
+  box-shadow: 0 5px 18px #ead5dd40;
+  transition: transform 0.2s;
 }
-.card span {
-  font-size: 35px;
+
+.card:active {
+  transform: scale(0.98);
 }
+
+.card .emoji {
+  font-size: 31px;
+}
+
 .card h2 {
-  margin: 15px 0 8px;
+  margin: 13px 0 9px;
 }
+
 .card p {
-  font-size: 13px;
-  color: #ad8a96;
+  color: #a68c96;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  line-height: 1.8;
 }
-.page { display: none; }
-.page:target { display: block; }
+
+.page {
+  display: none;
+}
+
+.page:target {
+  display: block;
+}
+
 body:not(:has(.page:target)) #home {
   display: block;
 }
+
+.section-heading {
+  margin: 20px 0 8px;
+}
+
+.description {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #a48c95;
+}
+
+.gallery-empty {
+  background: #fff;
+  border: 1px dashed #e8c8d3;
+  border-radius: 18px;
+  padding: 48px 20px;
+  margin: 28px 0;
+  color: #b1949d;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.gallery-empty .symbol {
+  font-size: 25px;
+  color: #d3a9b8;
+}
+
 .back {
   display: inline-block;
-  margin: 20px;
-  color: #a56d83;
-}
-.empty {
-  background: #fff;
-  padding: 45px 20px;
-  border: 1px dashed #e6becb;
-  border-radius: 20px;
-  line-height: 1.8;
-}
-.disclaimer {
-  font-size: 12px;
-  line-height: 1.8;
-  color: #987e86;
-  margin: 30px auto;
-}
-footer {
-  text-align: center;
-  padding: 30px;
+  margin: 23px 0 15px;
+  padding: 11px 19px;
+  background: #f7e8ed;
+  border-radius: 25px;
+  color: #956f7c;
+  text-decoration: none;
   font-size: 13px;
-  background: #fbe7ed;
+}
+
+.notice {
+  margin: 35px auto 10px;
+  padding: 20px;
+  border-top: 1px solid #eed9df;
+  font-size: 11px;
+  color: #a58b94;
+  line-height: 2;
+  max-width: 530px;
+}
+
+footer {
+  background: #fae8ee;
+  text-align: center;
+  padding: 29px;
+  font-size: 13px;
+  color: #a07c89;
+  line-height: 2;
+}
+
+@media (max-width: 420px) {
+  h1 {
+    font-size: 43px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <header>
+  <div class="decor">𓈒 ୨୧ 𓈒</div>
   <h1>lacewhim ♡</h1>
-  <p class="subtitle">THE LITTLE GALLERY</p>
-  <p>୨୧ a collection of little daydreams ୨୧</p>
+  <p class="subtitle">the little gallery</p>
+  <p class="decor">✧ ⋆ ♡ ⋆ ✧</p>
+  <p class="description">
+    a little archive of delicate daydreams
+  </p>
 </header>
 
 <main>
 
+<!-- HOME PAGE -->
+
 <section id="home" class="page">
-  <p>to our lovelies, ♡</p>
-  <p>explore our little archive of
-  delicate inspirations.</p>
 
-  <a class="card" href="#toploader">
-    <span>🎀</span>
+  <p class="intro">
+    to our lovelies, ♡
+    <br><br>
+    welcome to our little gallery,
+    where lace, ribbons & lovely
+    inspirations come together.
+    <br><br>
+    explore our collections below.
+  </p>
+
+  <a href="#toploader" class="card">
+    <div class="emoji">🎀</div>
     <h2>toploader deco</h2>
-    <p>explore the collection ୨୧</p>
+    <p>explore our little inspirations ୨୧</p>
   </a>
 
-  <a class="card" href="#binder">
-    <span>🤍</span>
+  <a href="#binder" class="card">
+    <div class="emoji">🤍</div>
     <h2>binder deco</h2>
-    <p>explore the collection ୨୧</p>
+    <p>a home for your precious photocards</p>
   </a>
+
+  <a href="#aesthetic" class="card">
+    <div class="emoji">🪽</div>
+    <h2>aesthetic preferences</h2>
+    <p>find the little style that feels like you</p>
+  </a>
+
 </section>
+
+
+<!-- TOPLOADER PAGE -->
 
 <section id="toploader" class="page">
-  <h2>୨୧ toploader deco</h2>
-  <p>our little inspiration archive</p>
-  <div class="empty">
-    ♡<br>
-    little inspirations are<br>
-    coming soon.
+
+  <h2 class="section-heading">
+    ୨୧ toploader deco
+  </h2>
+
+  <p class="description">
+    little frames for your most
+    treasured photocards.
+  </p>
+
+  <div class="gallery-empty">
+    <div class="symbol">♡</div>
+    our toploader inspiration gallery
+    <br>
+    is waiting for its little treasures.
+    <br><br>
+    coming soon ୨୧
   </div>
-  <a class="back" href="#home">← back to gallery</a>
+
+  <a href="#home" class="back">
+    ← back to gallery
+  </a>
+
 </section>
+
+
+<!-- BINDER PAGE -->
 
 <section id="binder" class="page">
-  <h2>୨୧ binder deco</h2>
-  <p>our little inspiration archive</p>
-  <div class="empty">
-    ♡<br>
-    little inspirations are<br>
-    coming soon.
+
+  <h2 class="section-heading">
+    ୨୧ binder deco
+  </h2>
+
+  <p class="description">
+    a little home for your
+    favourite photocard collections.
+  </p>
+
+  <div class="gallery-empty">
+    <div class="symbol">♡</div>
+    our binder inspiration gallery
+    <br>
+    is waiting to bloom.
+    <br><br>
+    coming soon ୨୧
   </div>
-  <a class="back" href="#home">← back to gallery</a>
+
+  <a href="#home" class="back">
+    ← back to gallery
+  </a>
+
 </section>
 
-<p class="disclaimer">
-Disclaimer: Reference images are for
-inspiration purposes only. They belong
-to their respective owners and are not
-handmade creations by lacewhim.
-</p>
+
+<!-- AESTHETIC PREFERENCES -->
+
+<section id="aesthetic" class="page">
+
+  <h2 class="section-heading">
+    ୨୧ aesthetic preferences
+  </h2>
+
+  <p class="description">
+    every little creation begins
+    with a style of your own.
+    <br>
+    explore the aesthetics below. ♡
+  </p>
+
+  <a href="#angelcore" class="card">
+    <div class="emoji">🪽</div>
+    <h2>angelcore</h2>
+    <p>heavenly whites, lace & soft details</p>
+  </a>
+
+  <a href="#coquette" class="card">
+    <div class="emoji">🎀</div>
+    <h2>coquette</h2>
+    <p>delicate ribbons, pink & pearls</p>
+  </a>
+
+  <a href="#vintage" class="card">
+    <div class="emoji">🕯️</div>
+    <h2>vintage</h2>
+    <p>timeless florals & romantic details</p>
+  </a>
+
+  <a href="#gothic" class="card">
+    <div class="emoji">🖤</div>
+    <h2>gothic romance</h2>
+    <p>dark lace, velvet & delicate charms</p>
+  </a>
+
+  <a href="#bias" class="card">
+    <div class="emoji">💌</div>
+    <h2>bias-inspired</h2>
+    <p>inspired by your favourite idol or era</p>
+  </a>
+
+  <a href="#home" class="back">
+    ← back to gallery
+  </a>
+
+</section>
+
+
+<!-- ANGELCORE -->
+
+<section id="angelcore" class="page">
+  <h2>🪽 angelcore</h2>
+  <p class="description">
+    soft whites, pearls, lace
+    & heavenly details.
+  </p>
+
+  <div class="gallery-empty">
+    <div class="symbol">♡</div>
+    angelcore inspirations
+    <br>coming soon.
+  </div>
+
+  <a href="#aesthetic" class="back">
+    ← back to aesthetics
+  </a>
+</section>
+
+
+<!-- COQUETTE -->
+
+<section id="coquette" class="page">
+  <h2>🎀 coquette</h2>
+  <p class="description">
+    dainty bows, baby pink
+    & lovely little ribbons.
+  </p>
+
+  <div class="gallery-empty">
+    <div class="symbol">♡</div>
+    coquette inspirations
+    <br>coming soon.
+  </div>
+
+  <a href="#aesthetic" class="back">
+    ← back to aesthetics
+  </a>
+</section>
+
+
+<!-- VINTAGE -->
+
+<section id="vintage" class="page">
+  <h2>🕯️ vintage</h2>
+  <p class="description">
+    delicate florals,
+    faded colours & timeless charm.
+  </p>
+
+  <div class="gallery-empty">
+    <div class="symbol">♡</div>
+    vintage inspirations
+    <br>coming soon.
+  </div>
+
+  <a href="#aesthetic" class="back">
+    ← back to aesthetics
+  </a>
+</section>
+
+
+<!-- GOTHIC -->
+
+<section id="gothic" class="page">
+  <h2>🖤 gothic romance</h2>
+  <p class="description">
+    dark lace, velvet ribbons
+    & romantic little details.
+  </p>
+
+  <div class="gallery-empty">
+    <div class="symbol">♡</div>
+    gothic inspirations
+    <br>coming soon.
+  </div>
+
+  <a href="#aesthetic" class="back">
+    ← back to aesthetics
+  </a>
+</section>
+
+
+<!-- BIAS INSPIRED -->
+
+<section id="bias" class="page">
+  <h2>💌 bias-inspired</h2>
+
+  <p class="description">
+    inspired by your favourite idols,
+    signature colours & comeback eras.
+  </p>
+
+  <div class="gallery-empty">
+    <div class="symbol">♡</div>
+    bias-inspired creations
+    <br>coming soon.
+  </div>
+
+  <a href="#aesthetic" class="back">
+    ← back to aesthetics
+  </a>
+</section>
+
+
+<!-- DISCLAIMER -->
+
+<div class="notice">
+  ୨୧ a gentle reminder
+  <br><br>
+  all reference images are shared
+  for inspiration purposes only.
+  they are not original handmade
+  creations by lacewhim.
+  <br><br>
+  original designs remain the property
+  of their respective creators.
+  <br><br>
+  custom requests are subject
+  to material availability
+  & design approval.
+</div>
 
 </main>
 
 <footer>
-  𓈒 ୨୧ 𓈒<br>
+  𓈒 ୨୧ 𓈒
+  <br>
+  thoughtfully made, just for you.
+  <br>
   with love, lacewhim. ♡
 </footer>
 
