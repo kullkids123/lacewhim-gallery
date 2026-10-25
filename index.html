@@ -45,7 +45,7 @@ footer{text-align:center;background:#fae8ee;color:#a07c89;padding:28px;font-size
 <div class="notice">
 ୨୧ a gentle reminder<br><br>
 found an inspiration you love? copy its design code and add it to your order form.<br><br>
-all images featured in this gallery are shared for inspiration purposes only. we do not claim ownership of the original designs.
+reference images are not original creations by lacewhim. use only images you own or have permission to display. custom recreations may vary.
 </div>
 </main>
 <footer>𓈒 ୨୧ 𓈒<br>thoughtfully made, just for you.<br>with love, lacewhim. ♡</footer>
@@ -67,13 +67,13 @@ const existingPhotos = [
 // Example: TL-M003.jpg -> Minimal Toploader, code TL-M003.
 const prefixCategory = {
   'TL-M':'tl-minimal','TL-D':'tl-detailed',
-  'BD-M':'bd-minimal','BD-D':'bd-detailed',
+  'BD':'binder','BD-M':'binder','BD-D':'binder',
   'AN':'angelcore','CQ':'coquette','VT':'vintage',
   'GR':'gothic','BI':'bias'
 };
 const titles = {
   'tl-minimal':'minimal toploader','tl-detailed':'detailed toploader',
-  'bd-minimal':'minimal binder','bd-detailed':'detailed binder',
+  'binder':'binder deco',
   'angelcore':'angelcore','coquette':'coquette','vintage':'vintage',
   'gothic':'gothic romance','bias':'bias-inspired'
 };
@@ -82,8 +82,6 @@ const menus = {
     ['🎀','toploader deco','toploader'],['🤍','binder deco','binder'],['🪽','aesthetic preferences','aesthetic']]},
   toploader:{title:'toploader deco',desc:'little frames for treasured photocards.',back:'home',items:[
     ['♡','minimal deco','tl-minimal'],['🎀','detailed deco','tl-detailed']]},
-  binder:{title:'binder deco',desc:'a little home for your favourite photocards.',back:'home',items:[
-    ['♡','minimal deco','bd-minimal'],['🤍','detailed deco','bd-detailed']]},
   aesthetic:{title:'aesthetic preferences',desc:'find the little style that feels like you.',back:'home',items:[
     ['🪽','angelcore','angelcore'],['🎀','coquette','coquette'],['🕯️','vintage','vintage'],
     ['🖤','gothic romance','gothic'],['💌','bias-inspired','bias']]}
@@ -116,9 +114,9 @@ async function loadNewPhotos(){
     if(!Array.isArray(files))throw new Error('Unexpected file list');
     files.forEach(item=>{
       if(item.type!=='file')return;
-      // TL-M003 / TL-D001 / BD-M001 / BD-D001 (no extra dash)
+      // TL-M003 / TL-D001 / BD-001, plus older BD-M001/BD-D001
       // AN-001 / CQ-001 / VT-001 / GR-001 / BI-001
-      const match=item.name.match(/^(TL-M|TL-D|BD-M|BD-D|AN|CQ|VT|GR|BI)(-?)(\d{3,})\.(jpg|jpeg|png|webp|gif)$/i);
+      const match=item.name.match(/^(TL-M|TL-D|BD-M|BD-D|BD|AN|CQ|VT|GR|BI)(-?)(\d{3,})\.(jpg|jpeg|png|webp|gif)$/i);
       if(!match)return;
       const prefix=match[1].toUpperCase();
       const isDeco=['TL-M','TL-D','BD-M','BD-D'].includes(prefix);
@@ -143,7 +141,8 @@ function backLink(target){
 }
 function render(){
   closeViewer();
-  const id=decodeURIComponent(location.hash.slice(1))||'home';
+  let id=decodeURIComponent(location.hash.slice(1))||'home';
+  if(id==='bd-minimal'||id==='bd-detailed'){location.hash='#binder';id='binder';}
   content.replaceChildren();
   if(menus[id]){
     const menu=menus[id];
@@ -179,7 +178,12 @@ function render(){
       });
       content.appendChild(grid);
     }
-    backLink(id.startsWith('tl-')?'toploader':id.startsWith('bd-')?'binder':'aesthetic');
+    if(id==='binder'){
+      const p=document.createElement('p');p.className='muted';
+      p.textContent='binder deco is priced individually based on design complexity, decorative materials and the amount used. binder + deco or deco-only (your own binder) available; shipping is separate. ♡';
+      content.appendChild(p);
+    }
+    backLink(id.startsWith('tl-')?'toploader':id==='binder'?'home':'aesthetic');
   }else{
     location.hash='#home';
   }
