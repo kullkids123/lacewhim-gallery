@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,440 +6,227 @@
 <title>lacewhim ♡ | the little gallery</title>
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;background:#fffaf8;
- color:#76565f;font-family:Georgia,serif;
-}
-header{
- background:linear-gradient(#f9e7ed,#fffaf8);
- text-align:center;padding:55px 20px 40px;
-}
-h1{
- font-size:46px;font-style:italic;
- font-weight:normal;color:#a17b8c;
- margin:5px 0;
-}
-header small{letter-spacing:3px}
-main{
- max-width:650px;margin:auto;
- padding:30px 20px;text-align:center;
- min-height:50vh;
-}
-h2{
- font-size:27px;font-weight:normal;
- font-style:italic;color:#a47b8c;
-}
-p{line-height:1.8}
-.muted{font-size:13px;color:#a48c95}
-.card{
- display:block;background:white;
- border:1px solid #efd9e0;
- border-radius:19px;padding:25px 15px;
- margin:16px 0;text-decoration:none;
- color:#76565f;
- box-shadow:0 5px 15px #ead5dd45;
-}
-.card span{font-size:29px}
-.card h2{margin:12px 0 8px}
-.card p{font-size:12px;color:#aa8e99}
-.gallery{
- display:grid;
- grid-template-columns:repeat(2,minmax(0,1fr));
- gap:12px;margin:25px 0;
-}
-.photo{
- background:white;border:1px solid #efd9e0;
- border-radius:15px;padding:9px;
-}
-.photo img{
- width:100%;aspect-ratio:1;
- object-fit:cover;border-radius:10px;
- cursor:pointer;
-}
-.code{
- font-size:13px;font-weight:bold;
- letter-spacing:1px;margin:10px 0;
-}
-button,.back{
- padding:11px 15px;
- border:1px solid #e8c8d3;
- background:#faeaf0;color:#906b7a;
- border-radius:22px;font-family:Georgia,serif;
- cursor:pointer;
-}
-.photo button{width:100%}
-.back{
- display:inline-block;margin:22px 0;
- text-decoration:none;
-}
-.empty{
- background:white;
- border:1px dashed #e8c8d3;
- border-radius:17px;padding:40px 15px;
- margin:25px 0;color:#af919b;
-}
-.notice{
- font-size:11px;line-height:2;
- color:#a58b94;
- border-top:1px solid #eed9df;
- padding:25px 10px;margin-top:30px;
-}
-footer{
- text-align:center;background:#fae8ee;
- color:#a07c89;padding:30px;
- line-height:2;font-size:13px;
-}
-#viewer{
- display:none;position:fixed;inset:0;
- background:#231b22f0;z-index:999;
- align-items:center;justify-content:center;
- flex-direction:column;padding:20px;gap:14px;
-}
-#viewer.open{display:flex}
-#viewer img{
- max-width:95vw;max-height:65vh;
- object-fit:contain;border-radius:10px;
-}
-#viewer .code{color:white;margin:0}
-#viewer .close{
- position:absolute;top:15px;right:20px;
- background:none;border:0;color:white;
- font-size:32px;
-}
-#viewer .controls{display:flex;gap:12px}
-#viewer .controls button{
- background:#ffffff25;color:white;
- border-color:#ffffff55;
-}
-@media(max-width:420px){
- h1{font-size:40px}
- h2{font-size:25px}
- .photo{padding:6px}
- .photo button{font-size:11px;padding:9px 4px}
-}
+body{margin:0;background:#fffaf8;color:#76565f;font-family:Georgia,serif}
+header{text-align:center;padding:48px 20px 36px;background:linear-gradient(#f9e7ed,#fffaf8)}
+h1{margin:5px 0;color:#a17b8c;font-size:43px;font-style:italic;font-weight:normal}
+header small{letter-spacing:3px;color:#9d7584}
+main{max-width:650px;min-height:55vh;margin:auto;padding:24px 20px;text-align:center}
+h2{color:#a47b8c;font-size:27px;font-weight:normal;font-style:italic}
+p{line-height:1.8}.muted{font-size:13px;color:#a48c95}
+a.card{display:block;background:white;border:1px solid #efd9e0;border-radius:20px;padding:23px 14px;margin:15px 0;text-decoration:none;color:#76565f;box-shadow:0 5px 15px #ead5dd45}
+.card .emoji{font-size:29px}.card h2{margin:12px 0 6px}.card p{font-size:12px;color:#aa8e99;margin:0}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:25px 0}
+.photo{background:white;border:1px solid #efd9e0;border-radius:15px;padding:8px;min-width:0}
+.photo img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;cursor:pointer}
+.code{font-size:13px;font-weight:bold;letter-spacing:.5px;margin:12px 0 9px}
+button,.back{padding:11px 14px;border:1px solid #e8c8d3;border-radius:22px;background:#faeaf0;color:#906b7a;font-family:Georgia,serif;cursor:pointer}
+.photo button{width:100%;font-size:12px}.back{display:inline-block;margin:22px 0;text-decoration:none}
+.empty{background:white;border:1px dashed #e8c8d3;border-radius:17px;padding:40px 15px;margin:25px 0;color:#af919b}
+.notice{font-size:11px;line-height:2;color:#a58b94;border-top:1px solid #eed9df;padding:25px 10px;margin-top:30px}
+#status{font-size:11px;color:#ad8797}
+footer{text-align:center;background:#fae8ee;color:#a07c89;padding:28px;font-size:13px;line-height:2}
+#viewer{display:none;position:fixed;inset:0;background:#231b22f0;z-index:999;align-items:center;justify-content:center;flex-direction:column;padding:20px;gap:14px}
+#viewer.open{display:flex}#viewer img{max-width:95vw;max-height:65vh;object-fit:contain;border-radius:10px}#viewer .code{color:white;margin:0}
+#viewer .close{position:absolute;top:15px;right:20px;background:none;border:0;color:white;font-size:34px}
+#viewer .controls{display:flex;gap:12px}#viewer .controls button{background:#ffffff25;color:white;border-color:#ffffff55}
+@media(max-width:420px){h1{font-size:39px}h2{font-size:25px}.photo button{padding:10px 5px}}
 </style>
 </head>
-
 <body>
-
 <header>
- <p>𓈒 ୨୧ 𓈒</p>
- <h1>lacewhim ♡</h1>
- <small>THE LITTLE GALLERY</small>
- <p class="muted">
- a little archive of delicate daydreams
- </p>
+<p>𓈒 ୨୧ 𓈒</p>
+<h1>lacewhim ♡</h1>
+<small>THE LITTLE GALLERY</small>
+<p class="muted">a little archive of delicate daydreams</p>
 </header>
-
 <main>
- <div id="content"></div>
-
- <div class="notice">
- ୨୧ a gentle reminder
- <br><br>
- found a design you love? simply copy
- its code and include it in your order form.
- <br><br>
- reference images are for inspiration only,
- not handmade creations by lacewhim.
- images may only be displayed with permission
- or appropriate usage rights.
- exact replicas are not guaranteed.
- </div>
-</main>
-
-<footer>
- 𓈒 ୨୧ 𓈒
- <br>
- thoughtfully made, just for you.
- <br>
- with love, lacewhim. ♡
-</footer>
-
-<div id="viewer" onclick="if(event.target===this)closeViewer()">
- <button class="close" onclick="closeViewer()">×</button>
- <img id="bigImage" alt="Design reference">
- <p class="code" id="bigCode"></p>
- <button id="bigCopy" onclick="copyCurrent(this)">
- ♡ copy design code
- </button>
- <div class="controls">
-  <button onclick="changePhoto(-1)">← prev</button>
-  <button onclick="changePhoto(1)">next →</button>
- </div>
+<div id="content"></div>
+<p id="status" role="status"></p>
+<div class="notice">
+୨୧ a gentle reminder<br><br>
+found an inspiration you love? copy its design code and add it to your order form.<br><br>
+reference images are not original creations by lacewhim. use only images you own or have permission to display. custom recreations may vary.
 </div>
-
+</main>
+<footer>𓈒 ୨୧ 𓈒<br>thoughtfully made, just for you.<br>with love, lacewhim. ♡</footer>
+<div id="viewer" onclick="if(event.target===this)closeViewer()">
+<button class="close" onclick="closeViewer()" aria-label="Close">×</button>
+<img id="bigImage" alt="Design reference">
+<p class="code" id="bigCode"></p>
+<button id="bigCopy" onclick="copyCurrent(this)">♡ copy design code</button>
+<div class="controls"><button onclick="changePhoto(-1)">← prev</button><button onclick="changePhoto(1)">next →</button></div>
+</div>
 <script>
+// ONE-TIME SETUP: Keep the two already-uploaded photos.
+const existingPhotos = [
+  {category:'tl-minimal',code:'TL-M001',file:'d7eb806e139d72cc0a2ded237742e477.jpg'},
+  {category:'tl-minimal',code:'TL-M002',file:'bd5b0d92fd2b7095d6c6857a058feaa7.jpg'}
+];
 
-// ADD YOUR GALLERY PHOTOS HERE
-// Each code must stay unique.
-
-const galleries = {
-
- "tl-minimal": [
-  {
-   code:"TL-M001",
-   file:"d7eb806e139d72cc0a2ded237742e477.jpg"
-  }
- ],
-
- "tl-detailed": [],
-
- "bd-minimal": [],
-
- "bd-detailed": [],
-
- "angelcore": [],
-
- "coquette": [],
-
- "vintage": [],
-
- "gothic": [],
-
- "bias": []
-
+// New photos are detected from their filenames automatically.
+// Example: TL-M003.jpg -> Minimal Toploader, code TL-M003.
+const prefixCategory = {
+  'TL-M':'tl-minimal','TL-D':'tl-detailed',
+  'BD-M':'bd-minimal','BD-D':'bd-detailed',
+  'AN':'angelcore','CQ':'coquette','VT':'vintage',
+  'GR':'gothic','BI':'bias'
 };
-
-// CATEGORY MENUS
-
+const titles = {
+  'tl-minimal':'minimal toploader','tl-detailed':'detailed toploader',
+  'bd-minimal':'minimal binder','bd-detailed':'detailed binder',
+  'angelcore':'angelcore','coquette':'coquette','vintage':'vintage',
+  'gothic':'gothic romance','bias':'bias-inspired'
+};
 const menus = {
-
- home: {
-  title:"the little gallery",
-  desc:"to our lovelies, ♡ explore our collections.",
-  items:[
-   ["🎀","toploader deco","toploader"],
-   ["🤍","binder deco","binder"],
-   ["🪽","aesthetic preferences","aesthetic"]
-  ]
- },
-
- toploader: {
-  title:"toploader deco",
-  desc:"little frames for treasured photocards.",
-  back:"home",
-  items:[
-   ["♡","minimal deco","tl-minimal"],
-   ["🎀","detailed deco","tl-detailed"]
-  ]
- },
-
- binder: {
-  title:"binder deco",
-  desc:"a little home for your favourite photocards.",
-  back:"home",
-  items:[
-   ["♡","minimal deco","bd-minimal"],
-   ["🤍","detailed deco","bd-detailed"]
-  ]
- },
-
- aesthetic: {
-  title:"aesthetic preferences",
-  desc:"find the style that feels like you.",
-  back:"home",
-  items:[
-   ["🪽","angelcore","angelcore"],
-   ["🎀","coquette","coquette"],
-   ["🕯️","vintage","vintage"],
-   ["🖤","gothic romance","gothic"],
-   ["💌","bias-inspired","bias"]
-  ]
- }
+  home:{title:'the little gallery',desc:'to our lovelies, ♡ explore our little collections.',items:[
+    ['🎀','toploader deco','toploader'],['🤍','binder deco','binder'],['🪽','aesthetic preferences','aesthetic']]},
+  toploader:{title:'toploader deco',desc:'little frames for treasured photocards.',back:'home',items:[
+    ['♡','minimal deco','tl-minimal'],['🎀','detailed deco','tl-detailed']]},
+  binder:{title:'binder deco',desc:'a little home for your favourite photocards.',back:'home',items:[
+    ['♡','minimal deco','bd-minimal'],['🤍','detailed deco','bd-detailed']]},
+  aesthetic:{title:'aesthetic preferences',desc:'find the little style that feels like you.',back:'home',items:[
+    ['🪽','angelcore','angelcore'],['🎀','coquette','coquette'],['🕯️','vintage','vintage'],
+    ['🖤','gothic romance','gothic'],['💌','bias-inspired','bias']]}
 };
 
-const titles={
- "tl-minimal":"minimal toploader",
- "tl-detailed":"detailed toploader",
- "bd-minimal":"minimal binder",
- "bd-detailed":"detailed binder",
- "angelcore":"angelcore",
- "coquette":"coquette",
- "vintage":"vintage",
- "gothic":"gothic romance",
- "bias":"bias-inspired"
-};
+const galleries = Object.fromEntries(Object.values(prefixCategory).map(id=>[id,[]]));
+const websiteRoot = new URL('./',location.href);
+const content = document.getElementById('content');
+const viewer = document.getElementById('viewer');
+const status = document.getElementById('status');
+let activeCategory = '',photoIndex = 0;
 
-let activeCategory="";
-let photoIndex=0;
-
-const content=document.getElementById("content");
-const viewer=document.getElementById("viewer");
-
-function addBack(target){
- const link=document.createElement("a");
- link.className="back";
- link.href="#"+target;
- link.textContent="← back";
- content.appendChild(link);
+function addPhoto(category,code,filename){
+  const list=galleries[category];
+  if(!list || list.some(photo=>photo.code===code))return;
+  list.push({code,file:new URL(encodeURIComponent(filename),websiteRoot).href});
+  list.sort((a,b)=>a.code.localeCompare(b.code,undefined,{numeric:true}));
 }
+existingPhotos.forEach(p=>addPhoto(p.category,p.code,p.file));
 
-function render(){
- closeViewer();
- const id=location.hash.slice(1)||"home";
- content.replaceChildren();
-
- if(menus[id]){
-  const menu=menus[id];
-
-  const h=document.createElement("h2");
-  h.textContent="୨୧ "+menu.title;
-  content.appendChild(h);
-
-  const p=document.createElement("p");
-  p.className="muted";
-  p.textContent=menu.desc;
-  content.appendChild(p);
-
-  menu.items.forEach(item=>{
-   const a=document.createElement("a");
-   a.className="card";
-   a.href="#"+item[2];
-
-   const emoji=document.createElement("span");
-   emoji.textContent=item[0];
-
-   const title=document.createElement("h2");
-   title.textContent=item[1];
-
-   const caption=document.createElement("p");
-   caption.textContent="explore collection ୨୧";
-
-   a.append(emoji,title,caption);
-   content.appendChild(a);
-  });
-
-  if(menu.back)addBack(menu.back);
- }
-
- else if(Object.prototype.hasOwnProperty.call(galleries,id)){
-  const h=document.createElement("h2");
-  h.textContent="୨୧ "+titles[id];
-  content.appendChild(h);
-
-  const list=galleries[id];
-
-  if(list.length===0){
-   const empty=document.createElement("div");
-   empty.className="empty";
-   empty.textContent="♡ little inspirations coming soon.";
-   content.appendChild(empty);
-  }else{
-   const grid=document.createElement("div");
-   grid.className="gallery";
-
-   list.forEach((photo,index)=>{
-    const card=document.createElement("div");
-    card.className="photo";
-
-    const img=document.createElement("img");
-    img.src=photo.file;
-    img.alt="Design "+photo.code;
-    img.onclick=()=>openViewer(id,index);
-
-    const code=document.createElement("p");
-    code.className="code";
-    code.textContent=photo.code;
-
-    const btn=document.createElement("button");
-    btn.textContent="♡ copy code";
-    btn.onclick=()=>copyCode(photo.code,btn);
-
-    card.append(img,code,btn);
-    grid.appendChild(card);
-   });
-
-   content.appendChild(grid);
+async function loadNewPhotos(){
+  status.textContent='checking for new inspirations ♡';
+  try{
+    const response=await fetch('https://api.github.com/repos/kullkids123/lacewhim-gallery/contents/',{
+      headers:{'Accept':'application/vnd.github+json'}
+    });
+    if(!response.ok)throw new Error('GitHub API unavailable');
+    const files=await response.json();
+    if(!Array.isArray(files))throw new Error('Unexpected file list');
+    files.forEach(item=>{
+      if(item.type!=='file')return;
+      const match=item.name.match(/^(TL-M|TL-D|BD-M|BD-D|AN|CQ|VT|GR|BI)-(\d{3,})\.(jpg|jpeg|png|webp|gif)$/i);
+      if(!match)return;
+      const prefix=match[1].toUpperCase();
+      const category=prefixCategory[prefix];
+      const code=prefix+'-'+match[2];
+      addPhoto(category,code,item.name);
+    });
+    status.textContent='';
+    if(!viewer.classList.contains('open'))render();
+  }catch(error){
+    status.textContent='New photos could not be checked right now. Refresh later ♡';
   }
-
-  const back=id.startsWith("tl-")?"toploader":
-   id.startsWith("bd-")?"binder":"aesthetic";
-
-  addBack(back);
- }else{
-  location.hash="#home";
- }
-
- window.scrollTo(0,0);
 }
 
-// COPY CODE
-
+function backLink(target){
+  const a=document.createElement('a');
+  a.className='back';a.href='#'+target;a.textContent='← back';
+  content.appendChild(a);
+}
+function render(){
+  closeViewer();
+  const id=decodeURIComponent(location.hash.slice(1))||'home';
+  content.replaceChildren();
+  if(menus[id]){
+    const menu=menus[id];
+    const title=document.createElement('h2');
+    title.textContent='୨୧ '+menu.title;content.appendChild(title);
+    const intro=document.createElement('p');
+    intro.className='muted';intro.textContent=menu.desc;content.appendChild(intro);
+    menu.items.forEach(([emoji,label,target])=>{
+      const card=document.createElement('a');card.className='card';card.href='#'+target;
+      const e=document.createElement('span');e.className='emoji';e.textContent=emoji;
+      const h=document.createElement('h2');h.textContent=label;
+      const p=document.createElement('p');p.textContent='explore collection ୨୧';
+      card.append(e,h,p);content.appendChild(card);
+    });
+    if(menu.back)backLink(menu.back);
+  }else if(Object.prototype.hasOwnProperty.call(galleries,id)){
+    const title=document.createElement('h2');
+    title.textContent='୨୧ '+titles[id];content.appendChild(title);
+    const list=galleries[id];
+    if(!list.length){
+      const empty=document.createElement('div');empty.className='empty';
+      empty.textContent='♡ little inspirations coming soon.';content.appendChild(empty);
+    }else{
+      const grid=document.createElement('div');grid.className='gallery';
+      list.forEach((photo,i)=>{
+        const card=document.createElement('div');card.className='photo';
+        const img=document.createElement('img');img.src=photo.file;img.alt=photo.code;
+        img.loading='lazy';img.onclick=()=>openViewer(id,i);
+        const code=document.createElement('p');code.className='code';code.textContent=photo.code;
+        const btn=document.createElement('button');btn.textContent='♡ copy code';
+        btn.onclick=()=>copyCode(photo.code,btn);
+        card.append(img,code,btn);grid.appendChild(card);
+      });
+      content.appendChild(grid);
+    }
+    backLink(id.startsWith('tl-')?'toploader':id.startsWith('bd-')?'binder':'aesthetic');
+  }else{
+    location.hash='#home';
+  }
+  window.scrollTo(0,0);
+}
 async function copyCode(code,button){
- try{
-  await navigator.clipboard.writeText(code);
-  button.textContent="♡ copied!";
- }catch(e){
-  const t=document.createElement("textarea");
-  t.value=code;
-  document.body.appendChild(t);
-  t.select();
-  const copied=document.execCommand("copy");
-  t.remove();
-  button.textContent=copied?"♡ copied!":
-   "code: "+code;
- }
+  try{
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(code);
+    }else{
+      const text=document.createElement('textarea');
+      text.value=code;document.body.appendChild(text);text.select();
+      const ok=document.execCommand('copy');text.remove();
+      if(!ok)throw new Error('Copy unavailable');
+    }
+    button.textContent='♡ copied!';
+  }catch(error){
+    button.textContent='code: '+code;
+    window.prompt('Copy this design code:',code);
+  }
 }
-
-// IMAGE VIEWER
-
 function openViewer(category,index){
- activeCategory=category;
- photoIndex=index;
- showPhoto();
- viewer.classList.add("open");
+  activeCategory=category;photoIndex=index;showPhoto();viewer.classList.add('open');
 }
-
 function showPhoto(){
- const photo=galleries[activeCategory][photoIndex];
- document.getElementById("bigImage").src=photo.file;
- document.getElementById("bigCode").textContent=photo.code;
- document.getElementById("bigCopy").textContent=
-  "♡ copy design code";
+  const photo=galleries[activeCategory][photoIndex];
+  document.getElementById('bigImage').src=photo.file;
+  document.getElementById('bigCode').textContent=photo.code;
+  document.getElementById('bigCopy').textContent='♡ copy design code';
 }
-
 function changePhoto(direction){
- if(!activeCategory)return;
- const count=galleries[activeCategory].length;
- if(count<2)return;
-
- photoIndex=(photoIndex+direction+count)%count;
- showPhoto();
+  if(!activeCategory)return;
+  const n=galleries[activeCategory].length;
+  if(n<2)return;
+  photoIndex=(photoIndex+direction+n)%n;showPhoto();
 }
-
+function closeViewer(){viewer.classList.remove('open')}
 function copyCurrent(button){
- const photo=galleries[activeCategory][photoIndex];
- copyCode(photo.code,button);
+  copyCode(galleries[activeCategory][photoIndex].code,button);
 }
-
-function closeViewer(){
- viewer.classList.remove("open");
-}
-
 let startX=0;
-
-viewer.addEventListener("touchstart",e=>{
- startX=e.changedTouches[0].screenX;
+viewer.addEventListener('touchstart',e=>{startX=e.changedTouches[0].screenX},{passive:true});
+viewer.addEventListener('touchend',e=>{
+  const diff=e.changedTouches[0].screenX-startX;
+  if(Math.abs(diff)>50)changePhoto(diff<0?1:-1);
 },{passive:true});
-
-viewer.addEventListener("touchend",e=>{
- const diff=e.changedTouches[0].screenX-startX;
- if(Math.abs(diff)>50){
-  changePhoto(diff<0?1:-1);
- }
-},{passive:true});
-
-document.addEventListener("keydown",e=>{
- if(!viewer.classList.contains("open"))return;
- if(e.key==="Escape")closeViewer();
- if(e.key==="ArrowRight")changePhoto(1);
- if(e.key==="ArrowLeft")changePhoto(-1);
+document.addEventListener('keydown',e=>{
+  if(!viewer.classList.contains('open'))return;
+  if(e.key==='Escape')closeViewer();
+  if(e.key==='ArrowRight')changePhoto(1);
+  if(e.key==='ArrowLeft')changePhoto(-1);
 });
-
-window.addEventListener("hashchange",render);
-render();
-
+window.addEventListener('hashchange',render);
+render();loadNewPhotos();
 </script>
 </body>
 </html>
