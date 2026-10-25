@@ -4,22 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>lacewhim ♡ | the little gallery</title>
+<!-- Commercial-use fonts from Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allison&family=Comic+Neue:wght@400;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#fffaf8;color:#76565f;font-family:Georgia,serif}
+body{margin:0;background:#fffaf8;color:#76565f;font-family:"Comic Neue",Arial,sans-serif}
 header{text-align:center;padding:48px 20px 36px;background:linear-gradient(#f9e7ed,#fffaf8)}
-h1{margin:5px 0;color:#a17b8c;font-size:43px;font-style:italic;font-weight:normal}
+h1{margin:3px 0 8px;color:#a17b8c;font-family:"Allison",cursive;font-size:84px;line-height:1;font-style:normal;font-weight:400} .brand-heart{font-family:Georgia,serif;font-size:.38em;vertical-align:middle}
 header small{letter-spacing:3px;color:#9d7584}
 main{max-width:650px;min-height:55vh;margin:auto;padding:24px 20px;text-align:center}
-h2{color:#a47b8c;font-size:27px;font-weight:normal;font-style:italic}
+h2{color:#a47b8c;font-family:"Comic Neue",sans-serif;font-size:27px;font-weight:700;font-style:normal}
 p{line-height:1.8}.muted{font-size:13px;color:#a48c95}
 a.card{display:block;background:white;border:1px solid #efd9e0;border-radius:20px;padding:23px 14px;margin:15px 0;text-decoration:none;color:#76565f;box-shadow:0 5px 15px #ead5dd45}
 .card .emoji{font-size:29px}.card h2{margin:12px 0 6px}.card p{font-size:12px;color:#aa8e99;margin:0}
 .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:25px 0}
 .photo{background:white;border:1px solid #efd9e0;border-radius:15px;padding:8px;min-width:0}
 .photo img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;cursor:pointer}
-.code{font-size:13px;font-weight:bold;letter-spacing:.5px;margin:12px 0 9px}
-button,.back{padding:11px 14px;border:1px solid #e8c8d3;border-radius:22px;background:#faeaf0;color:#906b7a;font-family:Georgia,serif;cursor:pointer}
+.code{font-family:"Fredoka",sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px;margin:12px 0 9px}
+button,.back{padding:11px 14px;border:1px solid #e8c8d3;border-radius:22px;background:#faeaf0;color:#906b7a;font-family:"Fredoka",sans-serif;font-weight:500;cursor:pointer}
 .photo button{width:100%;font-size:12px}.back{display:inline-block;margin:22px 0;text-decoration:none}
 .empty{background:white;border:1px dashed #e8c8d3;border-radius:17px;padding:40px 15px;margin:25px 0;color:#af919b}
 .notice{font-size:11px;line-height:2;color:#a58b94;border-top:1px solid #eed9df;padding:25px 10px;margin-top:30px}
@@ -29,13 +33,13 @@ footer{text-align:center;background:#fae8ee;color:#a07c89;padding:28px;font-size
 #viewer.open{display:flex}#viewer img{max-width:95vw;max-height:65vh;object-fit:contain;border-radius:10px}#viewer .code{color:white;margin:0}
 #viewer .close{position:absolute;top:15px;right:20px;background:none;border:0;color:white;font-size:34px}
 #viewer .controls{display:flex;gap:12px}#viewer .controls button{background:#ffffff25;color:white;border-color:#ffffff55}
-@media(max-width:420px){h1{font-size:39px}h2{font-size:25px}.photo button{padding:10px 5px}}
+@media(max-width:420px){h1{font-size:72px}h2{font-size:25px}.photo button{padding:10px 5px}}
 </style>
 </head>
 <body>
 <header>
 <p>𓈒 ୨୧ 𓈒</p>
-<h1>lacewhim ♡</h1>
+<h1>lacewhim <span class="brand-heart">♡</span></h1>
 <small>THE LITTLE GALLERY</small>
 <p class="muted">a little archive of delicate daydreams</p>
 </header>
