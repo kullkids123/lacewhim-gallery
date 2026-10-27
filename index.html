@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>lacewhim ♡ | the little gallery</title>
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allison&family=Comic+Neue:wght@400;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
@@ -18,35 +17,49 @@ header small{letter-spacing:3px;color:#9d7584}
 main{max-width:650px;min-height:55vh;margin:auto;padding:24px 20px;text-align:center}
 h2{color:#a47b8c;font-family:"Comic Neue",sans-serif;font-size:27px;font-weight:700;font-style:normal}
 h3{color:#9d7385;font-family:"Comic Neue",sans-serif;font-size:22px;font-weight:700;margin:16px 0 8px}
-p{line-height:1.8}.muted{font-size:13px;color:#a48c95}
+p{line-height:1.8}
+.muted{font-size:13px;color:#a48c95}
 a.card{display:block;background:white;border:1px solid #efd9e0;border-radius:20px;padding:23px 14px;margin:15px 0;text-decoration:none;color:#76565f;box-shadow:0 5px 15px #ead5dd45}
-.card .emoji{font-size:29px}.card h2{margin:12px 0 6px}.card p{font-size:12px;color:#aa8e99;margin:0}
+.card .emoji{font-size:29px}
+.card h2{margin:12px 0 6px}
+.card p{font-size:12px;color:#aa8e99;margin:0}
 .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:25px 0}
 .photo{background:white;border:1px solid #efd9e0;border-radius:15px;padding:8px;min-width:0}
 .photo img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;cursor:pointer}
 .code{font-family:"Fredoka",sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px;margin:12px 0 9px}
 button,.back{padding:11px 14px;border:1px solid #e8c8d3;border-radius:22px;background:#faeaf0;color:#906b7a;font-family:"Fredoka",sans-serif;font-weight:500;cursor:pointer}
-.photo button{width:100%;font-size:12px}.back{display:inline-block;margin:22px 0;text-decoration:none}
+.photo button{width:100%;font-size:12px}
+.back{display:inline-block;margin:22px 0;text-decoration:none}
 .empty{background:white;border:1px dashed #e8c8d3;border-radius:17px;padding:30px 15px;margin:18px 0;color:#af919b}
-.bouquet-section{padding:10px 0 16px}.bouquet-section+.bouquet-section{border-top:1px solid #efd9e0;margin-top:14px;padding-top:30px}
+.bouquet-section{padding:10px 0 16px}
+.bouquet-section+.bouquet-section{border-top:1px solid #efd9e0;margin-top:14px;padding-top:30px}
 .bouquet-section .gallery{margin-top:16px}
 .notice{font-size:11px;line-height:2;color:#a58b94;border-top:1px solid #eed9df;padding:25px 10px;margin-top:30px}
 #status{font-size:11px;color:#ad8797}
 footer{text-align:center;background:#fae8ee;color:#a07c89;padding:28px;font-size:13px;line-height:2}
 #viewer{display:none;position:fixed;inset:0;background:#231b22f0;z-index:999;align-items:center;justify-content:center;flex-direction:column;padding:20px;gap:14px}
-#viewer.open{display:flex}#viewer img{max-width:95vw;max-height:65vh;object-fit:contain;border-radius:10px}#viewer .code{color:white;margin:0}
+#viewer.open{display:flex}
+#viewer img{max-width:95vw;max-height:65vh;object-fit:contain;border-radius:10px}
+#viewer .code{color:white;margin:0}
 #viewer .close{position:absolute;top:15px;right:20px;background:none;border:0;color:white;font-size:34px}
-#viewer .controls{display:flex;gap:12px}#viewer .controls button{background:#ffffff25;color:white;border-color:#ffffff55}
-@media(max-width:420px){h1{font-size:72px}h2{font-size:25px}.photo button{padding:10px 5px}}
+#viewer .controls{display:flex;gap:12px}
+#viewer .controls button{background:#ffffff25;color:white;border-color:#ffffff55}
+@media(max-width:420px){
+h1{font-size:72px}
+h2{font-size:25px}
+.photo button{padding:10px 5px}
+}
 </style>
 </head>
 <body>
+
 <header>
 <p>𓈒 ୨୧ 𓈒</p>
 <h1>lacewhim <span class="brand-heart">♡</span></h1>
 <small>THE LITTLE GALLERY</small>
 <p class="muted">a little archive of delicate daydreams</p>
 </header>
+
 <main>
 <div id="content"></div>
 <p id="status" role="status"></p>
@@ -56,200 +69,436 @@ found an inspiration you love? copy its design code and add it to your order for
 reference images are not original creations by lacewhim. all images featured in this gallery are shared for inspiration purposes only. we do not claim ownership of the original designs.
 </div>
 </main>
-<footer>𓈒 ୨୧ 𓈒<br>thoughtfully made, just for you.<br>with love, lacewhim. ♡</footer>
+
+<footer>
+𓈒 ୨୧ 𓈒<br>
+thoughtfully made, just for you.<br>
+with love, lacewhim. ♡
+</footer>
+
 <div id="viewer" onclick="if(event.target===this)closeViewer()">
 <button class="close" onclick="closeViewer()" aria-label="Close">×</button>
 <img id="bigImage" alt="Design reference">
 <p class="code" id="bigCode"></p>
 <button id="bigCopy" onclick="copyCurrent(this)">♡ copy design code</button>
-<div class="controls"><button onclick="changePhoto(-1)">← prev</button><button onclick="changePhoto(1)">next →</button></div>
+<div class="controls">
+<button onclick="changePhoto(-1)">← prev</button>
+<button onclick="changePhoto(1)">next →</button>
 </div>
+</div>
+
 <script>
-// Preserve the two photos originally uploaded without numbered filenames.
+
+// Existing photos
 const existingPhotos = [
   {category:'tl-minimal',code:'TL-M001',file:'d7eb806e139d72cc0a2ded237742e477.jpg'},
   {category:'tl-minimal',code:'TL-M002',file:'bd5b0d92fd2b7095d6c6857a058feaa7.jpg'}
 ];
-// Auto-upload filenames: TL-M003, TL-D001, BD-001, AN-001,
-// CQ-001, VT-001, GR-001, WR-001, FL-001 (jpg/png/webp etc.)
+
+// Automatic image categories
 const prefixCategory = {
-  'TL-M':'tl-minimal','TL-D':'tl-detailed',
-  'BD':'binder','BD-M':'binder','BD-D':'binder',
-  'AN':'angelcore','CQ':'coquette','VT':'vintage','GR':'gothic',
-  'WR':'wrapper','FL':'flower'
+  'TL-M':'tl-minimal',
+  'TL-D':'tl-detailed',
+  'BD':'binder',
+  'BD-M':'binder',
+  'BD-D':'binder',
+  'AN':'angelcore',
+  'CQ':'coquette',
+  'VT':'vintage',
+  'GR':'gothic',
+  'WR':'wrapper',
+  'FL':'flower',
+  'AC':'accessory'
 };
+
 const titles = {
-  'tl-minimal':'minimal toploader','tl-detailed':'detailed toploader',
+  'tl-minimal':'minimal toploader',
+  'tl-detailed':'detailed toploader',
   'binder':'binder deco',
-  'angelcore':'angelcore','coquette':'coquette','vintage':'vintage',
-  'gothic':'gothic romance','wrapper':'wrapper selection','flower':'flower selection'
+  'angelcore':'angelcore',
+  'coquette':'coquette',
+  'vintage':'vintage',
+  'gothic':'gothic romance',
+  'wrapper':'wrapper selection',
+  'flower':'flower selection',
+  'accessory':'accessory selection'
 };
+
 const menus = {
-  home:{title:'the little gallery',desc:'to our lovelies, ♡ explore our little collections.',items:[
-    ['🎀','toploader deco','toploader'],['🤍','binder deco','binder'],
-    ['🪽','aesthetic preferences','aesthetic'],['💐','bouquet','bouquet']]},
-  toploader:{title:'toploader deco',desc:'little frames for treasured photocards.',back:'home',items:[
-    ['♡','minimal deco','tl-minimal'],['🎀','detailed deco','tl-detailed']]},
-  aesthetic:{title:'aesthetic preferences',desc:'find the little style that feels like you.',back:'home',items:[
-    ['🪽','angelcore','angelcore'],['🎀','coquette','coquette'],
-    ['🕯️','vintage','vintage'],['🖤','gothic romance','gothic']]}
+  home:{
+    title:'the little gallery',
+    desc:'to our lovelies, ♡ explore our little collections.',
+    items:[
+      ['🎀','toploader deco','toploader'],
+      ['🤍','binder deco','binder'],
+      ['🪽','aesthetic preferences','aesthetic'],
+      ['💐','bouquet','bouquet']
+    ]
+  },
+  toploader:{
+    title:'toploader deco',
+    desc:'little frames for treasured photocards.',
+    back:'home',
+    items:[
+      ['♡','minimal deco','tl-minimal'],
+      ['🎀','detailed deco','tl-detailed']
+    ]
+  },
+  aesthetic:{
+    title:'aesthetic preferences',
+    desc:'find the little style that feels like you.',
+    back:'home',
+    items:[
+      ['🪽','angelcore','angelcore'],
+      ['🎀','coquette','coquette'],
+      ['🕯️','vintage','vintage'],
+      ['🖤','gothic romance','gothic']
+    ]
+  }
 };
-const galleries = Object.fromEntries(Object.values(prefixCategory).map(id=>[id,[]]));
+
+const galleries = Object.fromEntries(
+  Object.values(prefixCategory).map(id=>[id,[]])
+);
+
 const websiteRoot = new URL('./',location.href);
 const content = document.getElementById('content');
 const viewer = document.getElementById('viewer');
 const status = document.getElementById('status');
-let activeCategory = '', photoIndex = 0;
+
+let activeCategory = '';
+let photoIndex = 0;
+
 function addPhoto(category,code,filename){
   const list=galleries[category];
+
   if(!list || list.some(photo=>photo.code===code))return;
-  list.push({code,file:new URL(encodeURIComponent(filename),websiteRoot).href});
-  list.sort((a,b)=>a.code.localeCompare(b.code,undefined,{numeric:true}));
+
+  list.push({
+    code,
+    file:new URL(encodeURIComponent(filename),websiteRoot).href
+  });
+
+  list.sort((a,b)=>
+    a.code.localeCompare(b.code,undefined,{numeric:true})
+  );
 }
+
 existingPhotos.forEach(p=>addPhoto(p.category,p.code,p.file));
+
 async function loadNewPhotos(){
   status.textContent='checking for new inspirations ♡';
+
   try{
-    const response=await fetch('https://api.github.com/repos/kullkids123/lacewhim-gallery/contents/?ref=main',{
-      cache:'no-store',headers:{'Accept':'application/vnd.github+json'}
-    });
+    const response=await fetch(
+      'https://api.github.com/repos/kullkids123/lacewhim-gallery/contents/?ref=main',
+      {
+        cache:'no-store',
+        headers:{'Accept':'application/vnd.github+json'}
+      }
+    );
+
     if(!response.ok)throw new Error('GitHub API unavailable');
+
     const files=await response.json();
+
     if(!Array.isArray(files))throw new Error('Unexpected file list');
+
     files.forEach(item=>{
       if(item.type!=='file')return;
-      const match=item.name.match(/^(TL-M|TL-D|BD-M|BD-D|BD|AN|CQ|VT|GR|WR|FL)(-?)(\d{3,})\.(jpg|jpeg|png|webp|gif)$/i);
+
+      const match=item.name.match(
+        /^(TL-M|TL-D|BD-M|BD-D|BD|AN|CQ|VT|GR|WR|FL|AC)(-?)(\d{3,})\.(jpg|jpeg|png|webp|gif)$/i
+      );
+
       if(!match)return;
+
       const prefix=match[1].toUpperCase();
-      const noHyphen=['TL-M','TL-D','BD-M','BD-D'].includes(prefix);
+
+      const noHyphen=[
+        'TL-M','TL-D','BD-M','BD-D'
+      ].includes(prefix);
+
       if(noHyphen && match[2]!=='')return;
       if(!noHyphen && match[2]!=='-')return;
+
       const category=prefixCategory[prefix];
-      const code=noHyphen ? prefix+match[3] : prefix+'-'+match[3];
+
+      const code=noHyphen
+        ? prefix+match[3]
+        : prefix+'-'+match[3];
+
       addPhoto(category,code,item.name);
     });
+
     status.textContent='';
+
     if(!viewer.classList.contains('open'))render();
+
   }catch(error){
-    status.textContent='New photos could not be checked right now. Refresh later ♡';
+    status.textContent=
+      'New photos could not be checked right now. Refresh later ♡';
   }
 }
+
 function backLink(target){
   const a=document.createElement('a');
-  a.className='back';a.href='#'+target;a.textContent='← back';
+  a.className='back';
+  a.href='#'+target;
+  a.textContent='← back';
   content.appendChild(a);
 }
+
 function addPhotoGrid(category,parent){
   const list=galleries[category];
+
   if(!list.length){
-    const empty=document.createElement('div');empty.className='empty';
-    empty.textContent='♡ little inspirations coming soon.';parent.appendChild(empty);
+    const empty=document.createElement('div');
+    empty.className='empty';
+    empty.textContent='♡ little inspirations coming soon.';
+    parent.appendChild(empty);
     return;
   }
-  const grid=document.createElement('div');grid.className='gallery';
+
+  const grid=document.createElement('div');
+  grid.className='gallery';
+
   list.forEach((photo,i)=>{
-    const card=document.createElement('div');card.className='photo';
-    const img=document.createElement('img');img.src=photo.file;img.alt=photo.code;
-    img.loading='lazy';img.onclick=()=>openViewer(category,i);
-    const code=document.createElement('p');code.className='code';code.textContent=photo.code;
-    const btn=document.createElement('button');btn.textContent='♡ copy code';
+    const card=document.createElement('div');
+    card.className='photo';
+
+    const img=document.createElement('img');
+    img.src=photo.file;
+    img.alt=photo.code;
+    img.loading='lazy';
+    img.onclick=()=>openViewer(category,i);
+
+    const code=document.createElement('p');
+    code.className='code';
+    code.textContent=photo.code;
+
+    const btn=document.createElement('button');
+    btn.textContent='♡ copy code';
     btn.onclick=()=>copyCode(photo.code,btn);
-    card.append(img,code,btn);grid.appendChild(card);
+
+    card.append(img,code,btn);
+    grid.appendChild(card);
   });
+
   parent.appendChild(grid);
 }
+
 function render(){
   closeViewer();
+
   let id=decodeURIComponent(location.hash.slice(1))||'home';
-  if(id==='bd-minimal'||id==='bd-detailed'){location.hash='#binder';id='binder';}
+
+  if(id==='bd-minimal'||id==='bd-detailed'){
+    location.hash='#binder';
+    id='binder';
+  }
+
   content.replaceChildren();
+
   if(menus[id]){
     const menu=menus[id];
-    const title=document.createElement('h2');title.textContent='୨୧ '+menu.title;content.appendChild(title);
-    const intro=document.createElement('p');intro.className='muted';intro.textContent=menu.desc;content.appendChild(intro);
-    menu.items.forEach(([emoji,label,target])=>{
-      const card=document.createElement('a');card.className='card';card.href='#'+target;
-      const e=document.createElement('span');e.className='emoji';e.textContent=emoji;
-      const h=document.createElement('h2');h.textContent=label;
-      const p=document.createElement('p');p.textContent='explore collection ୨୧';
-      card.append(e,h,p);content.appendChild(card);
-    });
-    if(menu.back)backLink(menu.back);
-  }else if(id==='bouquet'){
-    const title=document.createElement('h2');title.textContent='୨୧ bouquet';content.appendChild(title);
-    const intro=document.createElement('p');intro.className='muted';
-    intro.textContent='choose your favourite wrapper & flowers to create your own little bouquet. ♡';
+
+    const title=document.createElement('h2');
+    title.textContent='୨୧ '+menu.title;
+    content.appendChild(title);
+
+    const intro=document.createElement('p');
+    intro.className='muted';
+    intro.textContent=menu.desc;
     content.appendChild(intro);
-    // IMPORTANT: These two sections appear on the SAME page, no subcategory buttons.
-    [['wrapper','wrapper selection'],['flower','flower selection']].forEach(([category,label])=>{
-      const section=document.createElement('section');section.className='bouquet-section';
-      const heading=document.createElement('h3');heading.textContent='୨୧ '+label;section.appendChild(heading);
+
+    menu.items.forEach(([emoji,label,target])=>{
+      const card=document.createElement('a');
+      card.className='card';
+      card.href='#'+target;
+
+      const e=document.createElement('span');
+      e.className='emoji';
+      e.textContent=emoji;
+
+      const h=document.createElement('h2');
+      h.textContent=label;
+
+      const p=document.createElement('p');
+      p.textContent='explore collection ୨୧';
+
+      card.append(e,h,p);
+      content.appendChild(card);
+    });
+
+    if(menu.back)backLink(menu.back);
+
+  }else if(id==='bouquet'){
+
+    const title=document.createElement('h2');
+    title.textContent='୨୧ bouquet';
+    content.appendChild(title);
+
+    const intro=document.createElement('p');
+    intro.className='muted';
+    intro.textContent=
+      'choose your favourite wrapper, flowers & accessories to create your own little bouquet. ♡';
+    content.appendChild(intro);
+
+    // All bouquet sections on the same page
+    [
+      ['wrapper','wrapper selection'],
+      ['flower','flower selection'],
+      ['accessory','accessory selection']
+    ].forEach(([category,label])=>{
+
+      const section=document.createElement('section');
+      section.className='bouquet-section';
+
+      const heading=document.createElement('h3');
+      heading.textContent='୨୧ '+label;
+      section.appendChild(heading);
+
       addPhotoGrid(category,section);
       content.appendChild(section);
     });
-    const note=document.createElement('p');note.className='muted';
-    note.textContent='copy one wrapper code and one flower code, then include both in your bouquet request. ♡';
+
+    const note=document.createElement('p');
+    note.className='muted';
+    note.textContent=
+      'copy your chosen wrapper, flower & accessory codes, then include them in your bouquet request. you may select multiple flowers and accessories. ♡';
+
     content.appendChild(note);
+
     backLink('home');
+
   }else if(Object.prototype.hasOwnProperty.call(galleries,id)){
-    // Wrapper and flower appear only within the Bouquet page.
-    if(id==='wrapper'||id==='flower'){location.hash='#bouquet';return;}
-    const title=document.createElement('h2');title.textContent='୨୧ '+titles[id];content.appendChild(title);
+
+    // Bouquet sections only appear within the Bouquet page
+    if(
+      id==='wrapper'||
+      id==='flower'||
+      id==='accessory'
+    ){
+      location.hash='#bouquet';
+      return;
+    }
+
+    const title=document.createElement('h2');
+    title.textContent='୨୧ '+titles[id];
+    content.appendChild(title);
+
     addPhotoGrid(id,content);
+
     if(id==='binder'){
-      const p=document.createElement('p');p.className='muted';
-      p.textContent='binder deco is priced individually based on design complexity, decorative materials and the amount used. binder + deco or deco-only (your own binder) available; shipping is separate. ♡';
+      const p=document.createElement('p');
+      p.className='muted';
+      p.textContent=
+        'binder deco is priced individually based on design complexity, decorative materials and the amount used. binder + deco or deco-only (your own binder) available; shipping is separate. ♡';
+
       content.appendChild(p);
     }
-    backLink(id.startsWith('tl-')?'toploader':id==='binder'?'home':'aesthetic');
+
+    backLink(
+      id.startsWith('tl-')
+        ? 'toploader'
+        : id==='binder'
+          ? 'home'
+          : 'aesthetic'
+    );
+
   }else{
     location.hash='#home';
   }
+
   window.scrollTo(0,0);
 }
+
 async function copyCode(code,button){
   try{
-    if(navigator.clipboard && window.isSecureContext){await navigator.clipboard.writeText(code);}
-    else{
-      const text=document.createElement('textarea');text.value=code;document.body.appendChild(text);text.select();
-      const ok=document.execCommand('copy');text.remove();
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(code);
+    }else{
+      const text=document.createElement('textarea');
+      text.value=code;
+      document.body.appendChild(text);
+      text.select();
+
+      const ok=document.execCommand('copy');
+      text.remove();
+
       if(!ok)throw new Error('Copy unavailable');
     }
+
     button.textContent='♡ copied!';
+
   }catch(error){
     button.textContent='code: '+code;
     window.prompt('Copy this design code:',code);
   }
 }
-function openViewer(category,index){activeCategory=category;photoIndex=index;showPhoto();viewer.classList.add('open');}
+
+function openViewer(category,index){
+  activeCategory=category;
+  photoIndex=index;
+  showPhoto();
+  viewer.classList.add('open');
+}
+
 function showPhoto(){
   const photo=galleries[activeCategory][photoIndex];
+
   document.getElementById('bigImage').src=photo.file;
   document.getElementById('bigCode').textContent=photo.code;
   document.getElementById('bigCopy').textContent='♡ copy design code';
 }
+
 function changePhoto(direction){
   if(!activeCategory)return;
+
   const n=galleries[activeCategory].length;
+
   if(n<2)return;
-  photoIndex=(photoIndex+direction+n)%n;showPhoto();
+
+  photoIndex=(photoIndex+direction+n)%n;
+  showPhoto();
 }
-function closeViewer(){viewer.classList.remove('open');}
-function copyCurrent(button){copyCode(galleries[activeCategory][photoIndex].code,button);}
+
+function closeViewer(){
+  viewer.classList.remove('open');
+}
+
+function copyCurrent(button){
+  copyCode(galleries[activeCategory][photoIndex].code,button);
+}
+
 let startX=0;
-viewer.addEventListener('touchstart',e=>{startX=e.changedTouches[0].screenX},{passive:true});
+
+viewer.addEventListener('touchstart',e=>{
+  startX=e.changedTouches[0].screenX;
+},{passive:true});
+
 viewer.addEventListener('touchend',e=>{
   const diff=e.changedTouches[0].screenX-startX;
-  if(Math.abs(diff)>50)changePhoto(diff<0?1:-1);
+
+  if(Math.abs(diff)>50){
+    changePhoto(diff<0?1:-1);
+  }
 },{passive:true});
+
 document.addEventListener('keydown',e=>{
   if(!viewer.classList.contains('open'))return;
+
   if(e.key==='Escape')closeViewer();
   if(e.key==='ArrowRight')changePhoto(1);
   if(e.key==='ArrowLeft')changePhoto(-1);
 });
+
 window.addEventListener('hashchange',render);
-render();loadNewPhotos();
+
+render();
+loadNewPhotos();
+
 </script>
 </body>
 </html>
