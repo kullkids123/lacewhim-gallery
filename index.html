@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>lacewhim ♡ | the little gallery</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allison&family=Comic+Neue:wght@400;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#fffaf8;color:#76565f;font-family:"Comic Neue",Arial,sans-serif}
@@ -15,8 +17,8 @@ h1{margin:3px 0 8px;color:#a17b8c;font-family:"Allison",cursive;font-size:84px;l
 .brand-heart{font-family:Georgia,serif;font-size:.38em;vertical-align:middle}
 header small{letter-spacing:3px;color:#9d7584}
 main{max-width:650px;min-height:55vh;margin:auto;padding:24px 20px;text-align:center}
-h2{color:#a47b8c;font-family:"Comic Neue",sans-serif;font-size:27px;font-weight:700;font-style:normal}
-h3{color:#9d7385;font-family:"Comic Neue",sans-serif;font-size:22px;font-weight:700;margin:16px 0 8px}
+h2{color:#a47b8c;font-size:27px;font-weight:700}
+h3{color:#9d7385;font-size:22px;font-weight:700;margin:16px 0 8px}
 p{line-height:1.8}
 .muted{font-size:13px;color:#a48c95}
 a.card{display:block;background:white;border:1px solid #efd9e0;border-radius:20px;padding:23px 14px;margin:15px 0;text-decoration:none;color:#76565f;box-shadow:0 5px 15px #ead5dd45}
@@ -31,9 +33,6 @@ button,.back{padding:11px 14px;border:1px solid #e8c8d3;border-radius:22px;backg
 .photo button{width:100%;font-size:12px}
 .back{display:inline-block;margin:22px 0;text-decoration:none}
 .empty{background:white;border:1px dashed #e8c8d3;border-radius:17px;padding:30px 15px;margin:18px 0;color:#af919b}
-.bouquet-section{padding:10px 0 16px}
-.bouquet-section+.bouquet-section{border-top:1px solid #efd9e0;margin-top:14px;padding-top:30px}
-.bouquet-section .gallery{margin-top:16px}
 .notice{font-size:11px;line-height:2;color:#a58b94;border-top:1px solid #eed9df;padding:25px 10px;margin-top:30px}
 #status{font-size:11px;color:#ad8797}
 footer{text-align:center;background:#fae8ee;color:#a07c89;padding:28px;font-size:13px;line-height:2}
@@ -51,6 +50,7 @@ h2{font-size:25px}
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -63,6 +63,7 @@ h2{font-size:25px}
 <main>
 <div id="content"></div>
 <p id="status" role="status"></p>
+
 <div class="notice">
 ୨୧ a gentle reminder<br><br>
 found an inspiration you love? copy its design code and add it to your order form.<br><br>
@@ -89,13 +90,11 @@ with love, lacewhim. ♡
 
 <script>
 
-// Existing photos
 const existingPhotos = [
   {category:'tl-minimal',code:'TL-M001',file:'d7eb806e139d72cc0a2ded237742e477.jpg'},
   {category:'tl-minimal',code:'TL-M002',file:'bd5b0d92fd2b7095d6c6857a058feaa7.jpg'}
 ];
 
-// Automatic image categories
 const prefixCategory = {
   'TL-M':'tl-minimal',
   'TL-D':'tl-detailed',
@@ -106,9 +105,14 @@ const prefixCategory = {
   'CQ':'coquette',
   'VT':'vintage',
   'GR':'gothic',
-  'WR':'wrapper',
-  'FL':'flower',
-  'AC':'accessory'
+
+  'FL-PK':'flower-pink',
+  'FL-WH':'flower-white',
+  'FL-PR':'flower-purple',
+  'FL-BL':'flower-blue',
+  'FL-YL':'flower-yellow',
+  'FL-RD':'flower-red',
+  'FL-MX':'flower-mixed'
 };
 
 const titles = {
@@ -119,9 +123,13 @@ const titles = {
   'coquette':'coquette',
   'vintage':'vintage',
   'gothic':'gothic romance',
-  'wrapper':'wrapper selection',
-  'flower':'flower selection',
-  'accessory':'accessory selection'
+  'flower-pink':'pink flowers',
+  'flower-white':'white & cream flowers',
+  'flower-purple':'purple flowers',
+  'flower-blue':'blue flowers',
+  'flower-yellow':'yellow flowers',
+  'flower-red':'red flowers',
+  'flower-mixed':'mixed colour flowers'
 };
 
 const menus = {
@@ -135,6 +143,7 @@ const menus = {
       ['💐','bouquet','bouquet']
     ]
   },
+
   toploader:{
     title:'toploader deco',
     desc:'little frames for treasured photocards.',
@@ -144,6 +153,7 @@ const menus = {
       ['🎀','detailed deco','tl-detailed']
     ]
   },
+
   aesthetic:{
     title:'aesthetic preferences',
     desc:'find the little style that feels like you.',
@@ -153,6 +163,21 @@ const menus = {
       ['🎀','coquette','coquette'],
       ['🕯️','vintage','vintage'],
       ['🖤','gothic romance','gothic']
+    ]
+  },
+
+  bouquet:{
+    title:'flower selection',
+    desc:'choose your favourite flowers, or let lacewhim decide for you. ♡',
+    back:'home',
+    items:[
+      ['🩷','pink flowers','flower-pink'],
+      ['🤍','white & cream flowers','flower-white'],
+      ['💜','purple flowers','flower-purple'],
+      ['💙','blue flowers','flower-blue'],
+      ['💛','yellow flowers','flower-yellow'],
+      ['❤️','red flowers','flower-red'],
+      ['🌷','mixed colour flowers','flower-mixed']
     ]
   }
 };
@@ -208,7 +233,7 @@ async function loadNewPhotos(){
       if(item.type!=='file')return;
 
       const match=item.name.match(
-        /^(TL-M|TL-D|BD-M|BD-D|BD|AN|CQ|VT|GR|WR|FL|AC)(-?)(\d{3,})\.(jpg|jpeg|png|webp|gif)$/i
+        /^(TL-M|TL-D|BD-M|BD-D|BD|AN|CQ|VT|GR|FL-PK|FL-WH|FL-PR|FL-BL|FL-YL|FL-RD|FL-MX)(-?)(\d{3,})\.(jpg|jpeg|png|webp|gif)$/i
       );
 
       if(!match)return;
@@ -216,7 +241,9 @@ async function loadNewPhotos(){
       const prefix=match[1].toUpperCase();
 
       const noHyphen=[
-        'TL-M','TL-D','BD-M','BD-D'
+        'TL-M','TL-D','BD-M','BD-D',
+        'FL-PK','FL-WH','FL-PR','FL-BL',
+        'FL-YL','FL-RD','FL-MX'
       ].includes(prefix);
 
       if(noHyphen && match[2]!=='')return;
@@ -333,56 +360,7 @@ function render(){
 
     if(menu.back)backLink(menu.back);
 
-  }else if(id==='bouquet'){
-
-    const title=document.createElement('h2');
-    title.textContent='୨୧ bouquet';
-    content.appendChild(title);
-
-    const intro=document.createElement('p');
-    intro.className='muted';
-    intro.textContent=
-      'choose your favourite wrapper, flowers & accessories to create your own little bouquet. ♡';
-    content.appendChild(intro);
-
-    // All bouquet sections on the same page
-    [
-      ['wrapper','wrapper selection'],
-      ['flower','flower selection'],
-      ['accessory','accessory selection']
-    ].forEach(([category,label])=>{
-
-      const section=document.createElement('section');
-      section.className='bouquet-section';
-
-      const heading=document.createElement('h3');
-      heading.textContent='୨୧ '+label;
-      section.appendChild(heading);
-
-      addPhotoGrid(category,section);
-      content.appendChild(section);
-    });
-
-    const note=document.createElement('p');
-    note.className='muted';
-    note.textContent=
-      'copy your chosen wrapper, flower & accessory codes, then include them in your bouquet request. you may select multiple flowers and accessories. ♡';
-
-    content.appendChild(note);
-
-    backLink('home');
-
   }else if(Object.prototype.hasOwnProperty.call(galleries,id)){
-
-    // Bouquet sections only appear within the Bouquet page
-    if(
-      id==='wrapper'||
-      id==='flower'||
-      id==='accessory'
-    ){
-      location.hash='#bouquet';
-      return;
-    }
 
     const title=document.createElement('h2');
     title.textContent='୨୧ '+titles[id];
@@ -399,12 +377,22 @@ function render(){
       content.appendChild(p);
     }
 
+    if(id.startsWith('flower-')){
+      const p=document.createElement('p');
+      p.className='muted';
+      p.textContent=
+        'you may choose your favourite flowers or leave the arrangement to lacewhim. ♡';
+      content.appendChild(p);
+    }
+
     backLink(
       id.startsWith('tl-')
         ? 'toploader'
         : id==='binder'
           ? 'home'
-          : 'aesthetic'
+          : id.startsWith('flower-')
+            ? 'bouquet'
+            : 'aesthetic'
     );
 
   }else{
