@@ -13,7 +13,7 @@
 *{box-sizing:border-box}
 body{margin:0;background:#fffaf8;color:#76565f;font-family:"Comic Neue",Arial,sans-serif}
 header{text-align:center;padding:48px 20px 36px;background:linear-gradient(#f9e7ed,#fffaf8)}
-h1{margin:3px 0 8px;color:#a17b8c;font-family:"Allison",cursive;font-size:84px;line-height:1;font-style:normal;font-weight:400}
+h1{margin:3px 0 8px;color:#a17b8c;font-family:"Allison",cursive;font-size:84px;line-height:1;font-weight:400}
 .brand-heart{font-family:Georgia,serif;font-size:.38em;vertical-align:middle}
 header small{letter-spacing:3px;color:#9d7584}
 main{max-width:650px;min-height:55vh;margin:auto;padding:24px 20px;text-align:center}
@@ -25,7 +25,7 @@ a.card{display:block;background:white;border:1px solid #efd9e0;border-radius:20p
 .card .emoji{font-size:29px}
 .card h2{margin:12px 0 6px}
 .card p{font-size:12px;color:#aa8e99;margin:0}
-.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:25px 0}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0 24px}
 .photo{background:white;border:1px solid #efd9e0;border-radius:15px;padding:8px;min-width:0}
 .photo img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;cursor:pointer}
 .code{font-family:"Fredoka",sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px;margin:12px 0 9px}
@@ -33,6 +33,10 @@ button,.back{padding:11px 14px;border:1px solid #e8c8d3;border-radius:22px;backg
 .photo button{width:100%;font-size:12px}
 .back{display:inline-block;margin:22px 0;text-decoration:none}
 .empty{background:white;border:1px dashed #e8c8d3;border-radius:17px;padding:30px 15px;margin:18px 0;color:#af919b}
+.flower-section{padding:12px 0 18px}
+.flower-section+.flower-section{border-top:1px solid #efd9e0;margin-top:12px;padding-top:30px}
+.flower-section h3{margin-bottom:6px}
+.flower-section .gallery{margin-top:16px}
 .notice{font-size:11px;line-height:2;color:#a58b94;border-top:1px solid #eed9df;padding:25px 10px;margin-top:30px}
 #status{font-size:11px;color:#ad8797}
 footer{text-align:center;background:#fae8ee;color:#a07c89;padding:28px;font-size:13px;line-height:2}
@@ -66,7 +70,7 @@ h2{font-size:25px}
 
 <div class="notice">
 ୨୧ a gentle reminder<br><br>
-found an inspiration you love? copy its design code and add it to your order form.<br><br>
+found an inspiration you love? copy its design code and share it with us through Telegram PM.<br><br>
 reference images are not original creations by lacewhim. all images featured in this gallery are shared for inspiration purposes only. we do not claim ownership of the original designs.
 </div>
 </main>
@@ -105,14 +109,12 @@ const prefixCategory = {
   'CQ':'coquette',
   'VT':'vintage',
   'GR':'gothic',
-
   'FL-PK':'flower-pink',
   'FL-WH':'flower-white',
   'FL-PR':'flower-purple',
   'FL-BL':'flower-blue',
   'FL-YL':'flower-yellow',
-  'FL-RD':'flower-red',
-  'FL-MX':'flower-mixed'
+  'FL-RD':'flower-red'
 };
 
 const titles = {
@@ -122,15 +124,17 @@ const titles = {
   'angelcore':'angelcore',
   'coquette':'coquette',
   'vintage':'vintage',
-  'gothic':'gothic romance',
-  'flower-pink':'pink flowers',
-  'flower-white':'white & cream flowers',
-  'flower-purple':'purple flowers',
-  'flower-blue':'blue flowers',
-  'flower-yellow':'yellow flowers',
-  'flower-red':'red flowers',
-  'flower-mixed':'mixed colour flowers'
+  'gothic':'gothic romance'
 };
+
+const flowerSections = [
+  ['flower-pink','🩷','pink flowers'],
+  ['flower-white','🤍','white & cream flowers'],
+  ['flower-purple','💜','purple flowers'],
+  ['flower-blue','💙','blue flowers'],
+  ['flower-yellow','💛','yellow flowers'],
+  ['flower-red','❤️','red flowers']
+];
 
 const menus = {
   home:{
@@ -143,7 +147,6 @@ const menus = {
       ['💐','bouquet','bouquet']
     ]
   },
-
   toploader:{
     title:'toploader deco',
     desc:'little frames for treasured photocards.',
@@ -153,7 +156,6 @@ const menus = {
       ['🎀','detailed deco','tl-detailed']
     ]
   },
-
   aesthetic:{
     title:'aesthetic preferences',
     desc:'find the little style that feels like you.',
@@ -164,26 +166,11 @@ const menus = {
       ['🕯️','vintage','vintage'],
       ['🖤','gothic romance','gothic']
     ]
-  },
-
-  bouquet:{
-    title:'flower selection',
-    desc:'choose your favourite flowers, or let lacewhim decide for you. ♡',
-    back:'home',
-    items:[
-      ['🩷','pink flowers','flower-pink'],
-      ['🤍','white & cream flowers','flower-white'],
-      ['💜','purple flowers','flower-purple'],
-      ['💙','blue flowers','flower-blue'],
-      ['💛','yellow flowers','flower-yellow'],
-      ['❤️','red flowers','flower-red'],
-      ['🌷','mixed colour flowers','flower-mixed']
-    ]
   }
 };
 
 const galleries = Object.fromEntries(
-  Object.values(prefixCategory).map(id=>[id,[]])
+  [...new Set(Object.values(prefixCategory))].map(id=>[id,[]])
 );
 
 const websiteRoot = new URL('./',location.href);
@@ -233,7 +220,7 @@ async function loadNewPhotos(){
       if(item.type!=='file')return;
 
       const match=item.name.match(
-        /^(TL-M|TL-D|BD-M|BD-D|BD|AN|CQ|VT|GR|FL-PK|FL-WH|FL-PR|FL-BL|FL-YL|FL-RD|FL-MX)(-?)(\d{3,})\.(jpg|jpeg|png|webp|gif)$/i
+        /^(TL-M|TL-D|BD-M|BD-D|BD|AN|CQ|VT|GR|FL-PK|FL-WH|FL-PR|FL-BL|FL-YL|FL-RD)(-?)(\d{3,})\.(jpg|jpeg|png|webp|gif)$/i
       );
 
       if(!match)return;
@@ -242,8 +229,8 @@ async function loadNewPhotos(){
 
       const noHyphen=[
         'TL-M','TL-D','BD-M','BD-D',
-        'FL-PK','FL-WH','FL-PR','FL-BL',
-        'FL-YL','FL-RD','FL-MX'
+        'FL-PK','FL-WH','FL-PR',
+        'FL-BL','FL-YL','FL-RD'
       ].includes(prefix);
 
       if(noHyphen && match[2]!=='')return;
@@ -360,7 +347,44 @@ function render(){
 
     if(menu.back)backLink(menu.back);
 
+  }else if(id==='bouquet'){
+
+    const title=document.createElement('h2');
+    title.textContent='୨୧ flower selection';
+    content.appendChild(title);
+
+    const intro=document.createElement('p');
+    intro.className='muted';
+    intro.textContent=
+      'choose your favourite flowers by colour, or let lacewhim decide for you. ♡';
+    content.appendChild(intro);
+
+    flowerSections.forEach(([category,emoji,label])=>{
+      const section=document.createElement('section');
+      section.className='flower-section';
+
+      const heading=document.createElement('h3');
+      heading.textContent=emoji+' '+label;
+      section.appendChild(heading);
+
+      addPhotoGrid(category,section);
+      content.appendChild(section);
+    });
+
+    const note=document.createElement('p');
+    note.className='muted';
+    note.textContent=
+      'you may choose more than one flower design. copy your favourite codes and send them to lacewhim through Telegram PM. ♡';
+    content.appendChild(note);
+
+    backLink('home');
+
   }else if(Object.prototype.hasOwnProperty.call(galleries,id)){
+
+    if(id.startsWith('flower-')){
+      location.hash='#bouquet';
+      return;
+    }
 
     const title=document.createElement('h2');
     title.textContent='୨୧ '+titles[id];
@@ -373,15 +397,6 @@ function render(){
       p.className='muted';
       p.textContent=
         'binder deco is priced individually based on design complexity, decorative materials and the amount used. binder + deco or deco-only (your own binder) available; shipping is separate. ♡';
-
-      content.appendChild(p);
-    }
-
-    if(id.startsWith('flower-')){
-      const p=document.createElement('p');
-      p.className='muted';
-      p.textContent=
-        'you may choose your favourite flowers or leave the arrangement to lacewhim. ♡';
       content.appendChild(p);
     }
 
@@ -390,9 +405,7 @@ function render(){
         ? 'toploader'
         : id==='binder'
           ? 'home'
-          : id.startsWith('flower-')
-            ? 'bouquet'
-            : 'aesthetic'
+          : 'aesthetic'
     );
 
   }else{
